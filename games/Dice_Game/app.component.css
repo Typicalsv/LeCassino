@@ -1,0 +1,44 @@
+.game-container {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  input {
+    margin: 10px;
+  }
+  
+  button {
+    width: 200px;
+    font-size: medium;
+    padding: 12px 25px;
+    cursor: pointer;
+    border-radius: 15px;
+    border: 2px solid black;
+    background: linear-gradient(#00aa00, #006600);
+    color: white;
+    font-weight: bold;
+    transition: all 0.5s ease-in-out;
+  }
+  
+  button:hover {
+    background: linear-gradient(#006600, #00aa00);
+    transform: scale(1.05);
+  }
+  
+  button:disabled {
+    background: gray;
+    cursor: not-allowed;
+    transform: none;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  .game-over, h2, .result, .amount, .bet{
+    font-size: x-large;
+    font-weight: bold;
+    color: black;
+    margin-left: 50px;
+  }
+  
