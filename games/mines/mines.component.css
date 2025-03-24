@@ -1,0 +1,367 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    
+    background-color: rgb(1, 1, 168);
+
+}
+
+
+.containerRight{
+    display: inline-grid;
+    grid-template-columns: auto auto auto auto;
+    height: 600px;
+    width: 600px;
+}
+
+.containerRight div{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: grey;
+    border:  1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 150px;
+    height: 150px;
+    cursor: pointer;
+    border-radius: 10%;
+    margin: 5px;
+}
+.containerRight div:hover{
+background-color: rgb(150, 150, 150);
+}
+
+.containerLeft{
+    height: 600px;
+    width: 32%;
+    background-color: navy;
+    border-radius: 30px;
+}
+
+.container{
+    display: flex;
+    justify-content: space-around;
+}
+
+.containerTop{
+    margin-top: 5%;
+    background-color: blue;
+    height: 30%;
+    margin-bottom: 5%;
+    width: 90%;
+    margin-left: 5%;
+    border-radius: 20px;
+}
+.containerMid{
+    
+    height: 10%;
+    margin-bottom: 5%;
+    width: 90%;
+    margin-left: 5%;
+    border-radius: 20px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+}
+
+#start{
+    background-color: green;
+    height: 100%;
+    
+    width: 100%;
+    
+    border-radius: 20px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+}
+#start:hover{
+    background-color: rgb(0, 168, 0);
+    cursor: pointer;
+}
+.containerBot{
+    background-color: blue;
+    height: 40%;
+    width: 90%;
+    margin-left: 5%;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.containerTop p{
+    font-size: 15px;
+    color: white;
+    text-align: start;
+    margin-top: 5%;
+    margin-left: 10%;
+    font-weight: bold;
+    
+}
+#first{
+    padding-top: 3%;
+}
+
+.containerBotLeft{
+    
+    width: 50%;
+    height: 80%;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 20px;
+    margin-top: 5%;
+}
+.containerBotRight{
+   
+    width: 50%;
+    height: 80%;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 20px;
+    margin-top: 5%;
+}
+
+.pole{
+    display: flex;
+    justify-content: space-between;
+}
+
+.pole div{
+    background-color: navy;
+    border: 2px solid white;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 70px;
+    margin-left: 5px;
+}
+
+.auto{
+    display: flex;
+
+}
+.auto div{
+    background-color: navy;
+    border: 2px solid white;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 150%;
+    width: 110px;
+    margin-left: 5px;
+}
+.containerMiny{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    background-color: navy;
+    margin-top: 5%;
+    
+    
+}
+
+#plus, #minus{
+    
+    display: flex;
+    background-color: navy;
+    align-items: center;
+    justify-content: center;
+    height: 150%;
+    width: 30px;
+    border: 2px solid white;
+    
+}
+#miny{
+    display: flex;
+    background-color: navy;
+    align-items: center;
+    justify-content: center;
+    height: 150%;
+    width: 100px;
+    border-top: 2px solid white;
+    
+
+    
+}
+#plus{
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    cursor: pointer;
+}
+#minus{
+    
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    cursor: pointer;
+}
+.liczbamin{
+    height: 10px;
+    margin-bottom: -1px;
+    margin-top: -17%;
+
+}
+#liczbamin{
+    border-bottom: 2px solid white;
+    background-color: navy;
+    height: auto;
+    width: 100%;
+    text-align: center;
+}
+
+.containerFinish{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+.containerFinish #zbierz{
+    background-color: blue;
+    height: 100%;
+    width: 45%;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.containerFinish #zachowaj{
+    background-color: green;
+    cursor: pointer;
+    height: 100%;
+    width: 45%;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.containerFinish  #zbierz:hover{
+    background-color: rgb(83, 83, 255);
+    
+}
+.containerFinish  #zachowaj:hover{
+    background-color: rgb(0, 168, 0);
+}
+
+
+
+#hajs{
+    background-color: navy;
+    border: 2px solid white;
+    height: 80%;
+    width: 90%;
+    margin-left: 5%;
+    display: flex;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 25px;
+    border-radius: 20px;
+    margin-top: 15px;
+}
+#manual{
+    background-color: blue;
+}
+
+
+#rundy{
+    display: flex;
+    background-color: navy;
+    align-items: center;
+    justify-content: center;
+    height: 150%;
+    width: 100px;
+    border-top: 2px solid white;
+    text-align: center;
+
+    
+}
+
+
+#liczbaRund{
+    border-bottom: 2px solid white;
+    background-color: navy;
+    height: auto;
+    width: 100%;
+    text-align: center;
+}
+
+.containerRundy{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    background-color: navy;
+    margin-top: 5%;
+    height: 100%;
+    
+}
+.containerRundy #plus, .containerRundy #minus.containerRundy #plus, .containerRundy #minus {
+    
+height: 35px;
+}
+
+
+#autoStart{
+    background-color: grey;
+    height: 100%;
+    
+    width: 100%;
+    
+    border-radius: 20px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+}
+
+.containerTopBot{
+    display: flex;
+    height: 60%;
+}
+
+.containerBotBot{
+    display: flex;
+    height: 30%;
+}
+
+#autoEnd{
+    background-color: rgb(255, 0, 0);
+    height: 100%;
+    
+    width: 100%;
+    
+    border-radius: 20px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+}
+
