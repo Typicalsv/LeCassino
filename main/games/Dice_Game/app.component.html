@@ -1,0 +1,25 @@
+<div class="game-container">
+    <h1>Gra w kości</h1>
+  
+    <h2>Saldo: {{ balance }} zł</h2>
+  
+    <div>
+      <label class="bet" for="bet">Wybierz swoją liczbę oczek (2 - 12):</label><br> <!--numer do wybrania-->
+      <input type="number" [(ngModel)]="bet" min="2" max="12" />
+    </div>
+  
+    <div>
+      <label class="amount" for="amount">Kwota zakładu:</label><br> <!--kwota zakładu-->
+      <input type="number" [(ngModel)]="betAmount" [max]="balance" min="1" />
+    </div>
+  
+    <button (click)="rollDice()" [disabled]="betAmount > balance || balance <= 0"> <!--przycisk-->
+      Rzuć kośćmi!
+    </button>
+  
+    <div [class.hidden]="resultMessage === ''"> <!--wynik-->
+      <h2>Rzut kośćmi: {{ dice1 }} + {{ dice2 }} = {{ result }}</h2>
+      <p class="result">{{ resultMessage }}</p>
+    </div>
+  </div>
+  

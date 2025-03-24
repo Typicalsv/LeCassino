@@ -1,0 +1,58 @@
+.games-container {
+    display: flex;
+    width: 100%;
+    height: 100%; 
+    gap: 60px;
+    padding: 60px;
+    box-sizing: border-box;
+  }
+  
+
+  .game {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
+    padding-top: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: #34495e;
+    height: 70vh;
+  }
+  
+  .game:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+  }
+  
+  .game h2 {
+    margin: 0;
+    font-size: 1.5em;
+    color: #ffffff;
+    font-size: 70px;
+    font-family: "Kaushan Script", cursive;
+    font-weight: 600;
+    font-style: normal;
+  }
+
+  .main{
+    height: 100%;
+    width: 100%;
+  }
+  .roulette{
+    background-image: url(assets/roul.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .blackjack{
+    background-image: url(assets/back.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .kosci{
+    background-image: url(assets/dice.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }

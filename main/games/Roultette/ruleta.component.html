@@ -1,0 +1,87 @@
+<main>
+  
+    <h1>Ruleta</h1>
+    <div id="money-display">Money: $1000</div>
+    <div id="roulette-table">
+        <table>
+            <tbody>
+                <tr>
+                    <td class="bet-button zero" data-number="0" rowspan="3">0</td>
+                    <td class="bet-button" data-number="3">3</td>
+                    <td class="bet-button" data-number="6">6</td>
+                    <td class="bet-button" data-number="9">9</td>
+                    <td class="bet-button" data-number="12">12</td>
+                    <td class="bet-button" data-number="15">15</td>
+                    <td class="bet-button" data-number="18">18</td>
+                    <td class="bet-button" data-number="21">21</td>
+                    <td class="bet-button" data-number="24">24</td>
+                    <td class="bet-button" data-number="27">27</td>
+                    <td class="bet-button" data-number="30">30</td>
+                    <td class="bet-button" data-number="33">33</td>
+                    <td class="bet-button" data-number="36">36</td>
+                    <td class="bet-button" data-bet="row1">2 to 1</td>
+                </tr>
+                <tr>
+                    <td class="bet-button" data-number="2">2</td>
+                    <td class="bet-button" data-number="5">5</td>
+                    <td class="bet-button" data-number="8">8</td>
+                    <td class="bet-button" data-number="11">11</td>
+                    <td class="bet-button" data-number="14">14</td>
+                    <td class="bet-button" data-number="17">17</td>
+                    <td class="bet-button" data-number="20">20</td>
+                    <td class="bet-button" data-number="23">23</td>
+                    <td class="bet-button" data-number="26">26</td>
+                    <td class="bet-button" data-number="29">29</td>
+                    <td class="bet-button" data-number="32">32</td>
+                    <td class="bet-button" data-number="35">35</td>
+                    <td class="bet-button" data-bet="row2">2 to 1</td>
+                </tr>
+                <tr>
+                    <td class="bet-button" data-number="1">1</td>
+                    <td class="bet-button" data-number="4">4</td>
+                    <td class="bet-button" data-number="7">7</td>
+                    <td class="bet-button" data-number="10">10</td>
+                    <td class="bet-button" data-number="13">13</td>
+                    <td class="bet-button" data-number="16">16</td>
+                    <td class="bet-button" data-number="19">19</td>
+                    <td class="bet-button" data-number="22">22</td>
+                    <td class="bet-button" data-number="25">25</td>
+                    <td class="bet-button" data-number="28">28</td>
+                    <td class="bet-button" data-number="31">31</td>
+                    <td class="bet-button" data-number="34">34</td>
+                    <td class="bet-button" data-bet="row3">2 to 1</td>
+                </tr>
+                <tr>
+                    <td style="border: none; cursor: default;"></td>
+                    <td colspan="4" class="bet-button" data-bet="1st12">1st 12</td>
+                    <td colspan="4" class="bet-button" data-bet="2nd12">2nd 12</td>
+                    <td colspan="4" class="bet-button" data-bet="3rd12">3rd 12</td>
+                </tr>
+                <tr>
+                    <td style="border: none; cursor: default;"></td>
+                    <td colspan="2" class="bet-button" data-bet="1to18">1 to 18</td>
+                    <td colspan="2" class="bet-button" data-bet="even">EVEN</td>
+                    <td colspan="2" class="bet-button" data-bet="red">RED</td>
+                    <td colspan="2" class="bet-button" data-bet="black">BLACK</td>
+                    <td colspan="2" class="bet-button" data-bet="odd">ODD</td>
+                    <td colspan="2" class="bet-button" data-bet="19to36">19 to 36</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div id="controls">
+        <input type="number" id="bet-amount" placeholder="Bet Amount" min="1" max="1000">
+        <button id="spin-button">Spin</button>
+        <div id="bets-display">No bets placed.</div>
+    </div>
+    <div id="picked-numbers">
+        <h2>Picked Numbers</h2>
+        <div id="picked-numbers-display"></div>
+    </div>
+    <div id="previous-results">
+        <h2>Previous Results</h2>
+        <div id="results-display"></div>
+    </div>
+    
+
+</main>

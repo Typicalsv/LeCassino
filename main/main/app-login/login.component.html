@@ -1,0 +1,23 @@
+<div class="container">
+    <h2>Logowanie</h2>
+    <form autocomplete="off" (submit)="checkInputs($event)">
+        <div class="form-group">
+            <label for="username"> </label>
+            <div class="input-wrapper">
+                <input type="text" id="username" placeholder="Nazwa użytkownika">
+                <i class='bx bxs-user' ></i>
+            </div>
+            <div id="usernameError"></div>
+        </div>
+        <div class="form-group">
+            <label for="password"></label>
+            <div class="input-wrapper">
+                <input type="password" id="password" placeholder="Hasło">
+                <i class='bx bxs-lock-alt' (click)="showPassword()"></i>
+            </div>
+            <div id="passwordError"></div>
+        </div>
+        <button type="submit" class="btn">Zaloguj</button>
+        <div id="PLogin">Nie masz jeszcze konta? <a>Stwórz je!</a></div>
+    </form>
+</div>
