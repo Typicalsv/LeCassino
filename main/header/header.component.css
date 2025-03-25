@@ -8,7 +8,7 @@ body {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 10vh;
 }
 
 
@@ -24,7 +24,7 @@ body {
 
 
 .casino-logo {
-  font-size: 60px;
+  font-size: 20px;
   color: gold;
   font-family: "Kaushan Script", cursive;
   font-weight: 400;
