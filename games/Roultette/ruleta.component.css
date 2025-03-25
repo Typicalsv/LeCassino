@@ -1,11 +1,25 @@
-
+main{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: green;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+}
 
 #roulette-table {
     margin: 20px auto;
-    display: inline-block;
-    background-color: #006400; 
     padding: 10px;
     border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    height: 50%;
 }
 
 table {
@@ -109,6 +123,8 @@ td {
 
 #controls {
     margin-top: 20px;
+    display: flex;
+    flex-direction: column;
 }
 
 #spin-button {
@@ -128,6 +144,10 @@ td {
 #bets-display {
     margin-top: 10px;
     font-size: 18px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
 }
 
 #money-display {
@@ -142,7 +162,7 @@ td {
     background: transparent;
     border: 1px solid rgba(255, 255, 255, 0.2);
     color: #fff;
-    width: 5%;
+    width: 80%;
     border-radius: 10px;
 }
 #bet-amount:hover{
@@ -172,6 +192,7 @@ input[type="number"] {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    margin-bottom: 50px;
 }
 
 .result {
@@ -208,3 +229,14 @@ input[type="number"] {
     font-weight: bold;
 }
 
+.inputContainer{
+    width: 120%;
+    display: flex;
+    justify-content: space-between;
+    margin-left: -10%;
+}
+
+table{
+    height: 100%;
+    width: 150%;
+}
