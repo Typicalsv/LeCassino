@@ -76,9 +76,7 @@ export class AppComponent {
         if (skarbonka) {
             skarbonka.textContent = kasa_w_skarbonce.toString();
         }
-    } else {
-        console.log("nie działa");
-    }
+    } 
 
     function START() {
         if (kasa) {
@@ -158,7 +156,7 @@ export class AppComponent {
     function hit() {
         const randomIndex = Math.floor(Math.random() * karty.length);
 
-        console.log(ifsplit);
+        
         if (ifsplit) {
             splitHitOne();
         } else {
@@ -166,12 +164,12 @@ export class AppComponent {
                 playerHand.push(karty[randomIndex]);
                 handValue += value[randomIndex];
                 liczydlo++;
-                console.log(liczydlo);
+               
             } else if (playerHand.includes("A") && handValue + value[randomIndex] > 21 && liczydlo == 0) {
                 playerHand.push(karty[randomIndex]);
                 handValue += value[randomIndex] - 10;
                 liczydlo++;
-                console.log(liczydlo);
+               
             } else if (randomIndex == 0 && playerHand.includes("A") && liczydlo == 1) {
                 playerHand.push(karty[randomIndex]);
                 handValue += value[randomIndex];
@@ -220,12 +218,12 @@ export class AppComponent {
                   dealerHand.push(karty[randomIndex]);
                   dealerHandValue += value[randomIndex];
                   liczydlod++;
-                  console.log(liczydlod);
+                 
               } else if (dealerHand.includes("A") && dealerHandValue + value[randomIndex] > 21 && liczydlod == 0) {
                   dealerHand.push(karty[randomIndex]);
                   dealerHandValue += value[randomIndex] - 10;
                   liczydlod++;
-                  console.log(liczydlod);
+                  
               } else if (randomIndex == 0 && dealerHand.includes("A") && liczydlod == 1) {
                   dealerHand.push(karty[randomIndex]);
                   dealerHandValue += value[randomIndex];
@@ -253,16 +251,14 @@ export class AppComponent {
                       newH1.textContent = "BLACKJACK";
                       kasa_w_skarbonce += (parseFloat(kasa!.value) * 2.5);
                       updateSkarbonka();
-                      console.log(kasa_w_skarbonce);
-                      console.log(kasa!.value);
+                      
                   } else if (handValue1 > 21) {
                       newH1.textContent = "HAND ONE BUST";
                   } else if (dealerHandValue > 21 || handValue1 > dealerHandValue) {
                       newH1.textContent = "HAND ONE WIN";
                       kasa_w_skarbonce += (parseFloat(kasa!.value) * 2);
                       updateSkarbonka();
-                      console.log(kasa_w_skarbonce);
-                      console.log(kasa!.value);
+                      
                   } else if (dealerHandValue > handValue1) {
                       newH1.textContent = "HAND ONE LOSE";
                   } else {
@@ -275,16 +271,14 @@ export class AppComponent {
                       newH2.textContent = "BLACKJACK";
                       kasa_w_skarbonce += (parseFloat(kasa!.value) * 2.5);
                       updateSkarbonka();
-                      console.log(kasa_w_skarbonce);
-                      console.log(kasa!.value);
+                      
                   } else if (handValue2 > 21) {
                       newH2.textContent = "HAND TWO BUST";
                   } else if (dealerHandValue > 21 || handValue2 > dealerHandValue) {
                       newH2.textContent = "HAND TWO WIN";
                       kasa_w_skarbonce += (parseFloat(kasa!.value) * 2);
                       updateSkarbonka();
-                      console.log(kasa_w_skarbonce);
-                      console.log(kasa!.value);
+                      
                   } else if (dealerHandValue > handValue2) {
                       newH2.textContent = "HAND TWO LOSE";
                   } else {
@@ -298,19 +292,17 @@ export class AppComponent {
               } else {
                   document.body.append(buttonReplay);
                   if (ifdouble) {
-                      console.log(ifdouble);
+                      
                       if (dealerHandValue > 21) {
                           newH1.textContent = "DEALER BUST";
                           kasa_w_skarbonce += (parseFloat(kasa!.value) * 2);
                           updateSkarbonka();
-                          console.log(kasa_w_skarbonce);
-                          console.log(kasa!.value);
+                          
                       } else if (handValue > dealerHandValue) {
                           newH1.textContent = "YOU WIN";
                           kasa_w_skarbonce += (parseFloat(kasa!.value) * 2);
                           updateSkarbonka();
-                          console.log(kasa_w_skarbonce);
-                          console.log(kasa!.value);
+                          
                       }else if(handValue == dealerHandValue){
                           newH1.textContent = "PUSH";
                           kasa_w_skarbonce += (parseFloat(kasa!.value) * 1);
@@ -326,20 +318,18 @@ export class AppComponent {
                           newH1.textContent = "BLACKJACK";
                           kasa_w_skarbonce += (parseFloat(kasa!.value) * 2.5);
                           updateSkarbonka();
-                          console.log(kasa_w_skarbonce);
+                          
                       }else{
                           if (dealerHandValue > 21) {
                               newH1.textContent = "DEALER BUST";
                               kasa_w_skarbonce += (parseFloat(kasa!.value) * 2);
                               updateSkarbonka();
-                              console.log(kasa_w_skarbonce);
-                              console.log(kasa!.value);
+                            
                           } else if (handValue > dealerHandValue) {
                               newH1.textContent = "YOU WIN";
                               kasa_w_skarbonce += (parseFloat(kasa!.value) * 2);
                               updateSkarbonka();
-                              console.log(kasa_w_skarbonce);
-                              console.log(kasa!.value);
+                              
                           }else if(handValue == dealerHandValue){
                               newH1.textContent = "PUSH";
                               kasa_w_skarbonce += (parseFloat(kasa!.value) * 1);
@@ -358,8 +348,7 @@ export class AppComponent {
       buttonDouble.remove();
       document.getElementById("stand")!.remove();
       document.getElementById("hit")!.remove();
-      console.log(kasa_w_skarbonce);
-      console.log(kasa!.value);
+      
   }
   
   // Call updateSkarbonka in other relevant places
