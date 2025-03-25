@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="containerLeft">
+            <div class="containerTop">
+                <p id="first">Pozostałe diamenty {{pozostale}}</p>
+                <p>Ryzyko miny {{ryzyko}}%</p>
+                <p>Otwarte kafelki {{otwarte}}</p>
+                <p>Szansa na diament w następnym wyborze {{szansa}}%</p>
+            </div>
+            <div class="containerMid"  >
+                <div *ngIf="!ifstarted && !ifauto" id="start" (click)="start()">Rozpocznij grę</div> 
+                <div *ngIf="ifauto && !ifcanstop" id="autoStart" (click)="start()">Rozpocznij autogrę</div> 
+                <div *ngIf="ifautostarted && ifcanstop" id="autoEnd" (click)="stop()">Zakończ autogrę</div> 
+                <div class="containerFinish" *ngIf="ifstarted && !ifauto">
+                    <div id="zbierz" (click)="zbierz()">Zbierz</div>
+                    <div id="zachowaj">Zachowaj</div>
+                </div>
+            </div>
+            <div class="containerBot">
+                <div class="containerTopBot">
+                    <div class="containerBotLeft">
+                        <div class="containerMiny">
+                            <div id="minus" (click)="minusKasa()">-</div>
+                            <div class="liczbamin">
+                                <div id="miny" click>Kwota stawki</div>
+                                <div id="liczbamin">{{kwota}} zł</div>
+                            </div>
+                            
+                            <div id="plus" (click)="plusKasa()">+</div>
+                        </div>
+                        <div class="containerMiny">
+                            <div id="minus" (click)="minus()">-</div>
+                            <div class="liczbamin">
+                                <div id="miny" click>miny</div>
+                                <div id="liczbamin">{{liczbamin}}</div>
+                            </div>
+                            
+                            <div id="plus" (click)="plus()">+</div>
+                        </div>
+                        
+                    </div>
+                    <div class="containerBotRight">
+                        <div>
+                            <div *ngIf="ifauto">
+                                <div class="containerRundy">
+                                    <div id="minus" (click)="minusRundy()">-</div>
+                                    <div class="liczbamin">
+                                        <div id="rundy" click>Rundy</div>
+                                        <div id="liczbaRund">{{liczbaRund}}</div>
+                                    </div>
+                                    
+                                    <div id="plus" (click)="plusRundy()">+</div>
+                                </div>
+                            </div>
+                            <div *ngIf="!ifauto">
+                                Zachowaj
+                            </div>
+                        </div>
+                        
+                        <div class="auto">
+                            <div id="manual" (click)="manualPlay()">Ręczny</div>
+                            <div id="auto" (click)="autoPlay()">Auto</div>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                <div class="containerBotBot">
+                    <div id="hajs">
+                        <div>bilans: </div>        
+                        <div>{{hajs}} zł</div>
+                    </div>
+                </div>
+                
+            </div>
+            
+        </div>
+
+        <div class="containerRight">
+            <div id="mine1" (click)="onNumberClick(1)">1</div>
+            <div id="mine5" (click)="onNumberClick(5)">5</div>
+            <div id="mine9" (click)="onNumberClick(9)">9</div>
+            <div id="mine13" (click)="onNumberClick(13)">13</div>
+            <div id="mine2" (click)="onNumberClick(2)">2</div>
+            <div id="mine6" (click)="onNumberClick(6)">6</div>
+            <div id="mine10" (click)="onNumberClick(10)">10</div>
+            <div id="mine14" (click)="onNumberClick(14)">14</div>
+            <div id="mine3" (click)="onNumberClick(3)">3</div>
+            <div id="mine7" (click)="onNumberClick(7)">7</div>
+            <div id="mine11" (click)="onNumberClick(11)">11</div>
+            <div id="mine15" (click)="onNumberClick(15)">15</div>
+            <div id="mine4" (click)="onNumberClick(4)">4</div>
+            <div id="mine8" (click)="onNumberClick(8)">8</div>
+            <div id="mine12" (click)="onNumberClick(12)">12</div>
+            <div id="mine16" (click)="onNumberClick(16)">16</div>
+            
+          </div>
+
+    </div>
+    
+      
+</body>
+</html>
