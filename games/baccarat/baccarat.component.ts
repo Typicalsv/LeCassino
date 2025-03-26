@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { GlowowyComponent } from '../glowowy/glowowy.component';
 
 @Component({
   selector: 'app-baccarat',
   templateUrl: './baccarat.component.html',
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, GlowowyComponent],
   styleUrls: ['./baccarat.component.css']
 })
 export class BaccaratComponent implements OnInit {
