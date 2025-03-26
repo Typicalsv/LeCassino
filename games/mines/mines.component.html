@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-
+    <app-glowowy></app-glowowy>
     <div class="container">
 
         <div class="containerLeft">
@@ -16,7 +16,7 @@
                 <p>Otwarte kafelki {{otwarte}}</p>
                 <p>Szansa na diament w następnym wyborze {{szansa}}%</p>
             </div>
-            <div class="containerMid"  >
+            <div class="containerMid">
                 <div *ngIf="!ifstarted && !ifauto" id="start" (click)="start()">Rozpocznij grę</div> 
                 <div *ngIf="ifauto && !ifcanstop" id="autoStart" (click)="start()">Rozpocznij autogrę</div> 
                 <div *ngIf="ifautostarted && ifcanstop" id="autoEnd" (click)="stop()">Zakończ autogrę</div> 
@@ -34,7 +34,6 @@
                                 <div id="miny" click>Kwota stawki</div>
                                 <div id="liczbamin">{{kwota}} zł</div>
                             </div>
-                            
                             <div id="plus" (click)="plusKasa()">+</div>
                         </div>
                         <div class="containerMiny">
@@ -43,10 +42,8 @@
                                 <div id="miny" click>miny</div>
                                 <div id="liczbamin">{{liczbamin}}</div>
                             </div>
-                            
                             <div id="plus" (click)="plus()">+</div>
                         </div>
-                        
                     </div>
                     <div class="containerBotRight">
                         <div>
@@ -57,32 +54,24 @@
                                         <div id="rundy" click>Rundy</div>
                                         <div id="liczbaRund">{{liczbaRund}}</div>
                                     </div>
-                                    
                                     <div id="plus" (click)="plusRundy()">+</div>
                                 </div>
                             </div>
-                            <div *ngIf="!ifauto">
-                                Zachowaj
-                            </div>
+                            
                         </div>
-                        
                         <div class="auto">
                             <div id="manual" (click)="manualPlay()">Ręczny</div>
                             <div id="auto" (click)="autoPlay()">Auto</div>
                         </div>
-                        
                     </div>
                 </div>
-                
                 <div class="containerBotBot">
                     <div id="hajs">
                         <div>bilans: </div>        
                         <div>{{hajs}} zł</div>
                     </div>
                 </div>
-                
             </div>
-            
         </div>
 
         <div class="containerRight">
@@ -102,11 +91,9 @@
             <div id="mine8" (click)="onNumberClick(8)">8</div>
             <div id="mine12" (click)="onNumberClick(12)">12</div>
             <div id="mine16" (click)="onNumberClick(16)">16</div>
-            
-          </div>
+        </div>
 
     </div>
     
-      
 </body>
 </html>
