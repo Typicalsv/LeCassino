@@ -45,14 +45,11 @@ export class RuletaComponent {
   cancelBet(number: number | string): void {
     const betIndex: number = this.bets.findIndex(bet => bet.number == number); 
     if (betIndex !== -1) {
-      console.log(`Cancelling bet on ${number}`);
       this.money += this.bets[betIndex].amount;
       this.bets.splice(betIndex, 1);
       this.updateMoneyDisplay();
       this.updateBetsDisplay();
-    } else {
-      console.log(`Bet on ${number} not found`);
-    }
+    } 
   }
 
   spinWheel(): void {
