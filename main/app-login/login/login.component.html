@@ -1,23 +1,36 @@
-<div class="container">
-    <h2>Logowanie</h2>
-    <form autocomplete="off" (submit)="checkInputs($event)">
-        <div class="form-group">
-            <label for="username"> </label>
-            <div class="input-wrapper">
-                <input type="text" id="username" placeholder="Nazwa użytkownika">
-                <i class='bx bxs-user' ></i>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-image: url('casino.png'); background-size: cover; background-position: center;">
+    <div class="container">
+        <h2>Logowanie</h2>
+        <form autocomplete="off" (submit)="checkInputs($event)">
+            <div class="form-group">
+                <label for="username"> </label>
+                <div class="input-wrapper">
+                    <input type="text" id="username" placeholder="Nazwa użytkownika">
+                    <i class='bx bxs-user' ></i>
+                </div>
+                <div id="usernameError"></div>
             </div>
-            <div id="usernameError"></div>
-        </div>
-        <div class="form-group">
-            <label for="password"></label>
-            <div class="input-wrapper">
-                <input type="password" id="password" placeholder="Hasło">
-                <i class='bx bxs-lock-alt' (click)="showPassword()"></i>
+            <div class="form-group">
+                <label for="password"></label>
+                <div class="input-wrapper">
+                    <input type="password" id="password" placeholder="Hasło">
+                    <i class='bx bxs-lock-alt' (click)="showPassword()"></i>
+                </div>
+                <div id="passwordError"></div>
             </div>
-            <div id="passwordError"></div>
-        </div>
-        <button type="submit" class="btn">Zaloguj</button>
-        <div id="PLogin">Nie masz jeszcze konta? <a>Stwórz je!</a></div>
-    </form>
-</div>
+            <button type="submit" class="btn">Zaloguj</button>
+            <div id="PLogin">Nie masz jeszcze konta? <a routerLink="/register">Stwórz je!</a></div>
+        </form>
+    </div>
+</body>
+</html>
+
+
