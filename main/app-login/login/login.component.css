@@ -1,13 +1,12 @@
 
-body {
+body{
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     font-family:Arial, Helvetica, sans-serif;
+
 }
-
-
 
 
 .container {
@@ -18,25 +17,20 @@ body {
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 300px;
-   
 }
-
 .container h2 {
     text-align: center;
     margin-bottom: 20px;
     color: white;
 }
-
 .form-group {
     margin-bottom: 15px;
 }
-
 .form-group label {
     display: block;
     margin-bottom: 5px;
     color: white;
 }
-
 .form-group input {
     width: 100%;
     padding: 8px;
@@ -47,8 +41,9 @@ body {
     background: transparent;
     color: white;
     margin-bottom: 10px;
-}
+    
 
+}
 .btn {
     width: 100%;
     padding: 10px;
@@ -60,61 +55,49 @@ body {
     margin-bottom: 10px;
     color: black;
 }
-
 .btn:hover {
     background-color: #ffffff9d;
+    
 }
-
 .form-group input:focus {
     outline: none;
 }
-
-#PLogin {
+#PLogin{
     color: white;
     text-align: center;
 }
-
 .form-group input:hover {
     border: 2px solid white;
+    
 }
-
-a {
+a{
     color: white;
     text-decoration: none;
     font-weight: bold;
 }
-
-a:hover {
+a:hover{
     text-decoration: underline;
 }
-
-#usernameError, #passwordError {
+#nameError, #surnameError, #peselError, #usernameError, #passwordError, #confirmPasswordError{
     text-align: center;
     color: white;
     margin-bottom: 0px;
     padding-top: 5px;
+    
 }
-
 .form-group input::placeholder {
     color: white;
 }
 
-.input-wrapper {
-    position: relative;
-    width: 100%;
-}
-
-.input-wrapper input {
-    padding-right: 30px; 
-}
-
 .input-wrapper i {
     position: absolute;
-    right: 10px;
-    top: 40%;
-    transform: translateY(-50%);
+    right: 30px;
+    
+    transform: translateY(55%);
     color: white;
 }
+    
+
 
 input[type="password"]::-ms-reveal,
 input[type="password"]::-webkit-reveal {
