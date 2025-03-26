@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { GlowowyComponent } from '../glowowy/glowowy.component';
 
 @Component({
   selector: 'app-blackjack',
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, GlowowyComponent],
   templateUrl: './blackjack.component.html',
   styleUrl: './blackjack.component.css'
 })
