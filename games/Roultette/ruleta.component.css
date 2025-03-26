@@ -8,7 +8,7 @@ main{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 90vh;
+    height: 100vh;
 }
 
 #roulette-table {
@@ -239,4 +239,13 @@ input[type="number"] {
 table{
     height: 100%;
     width: 150%;
+}
+
+app-glowowy{
+    width: 100%;
+}
+
+
+#previous-results  h2{
+    justify-self: center ;
 }
