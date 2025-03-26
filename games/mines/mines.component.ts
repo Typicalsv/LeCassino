@@ -113,7 +113,6 @@ export class MinesComponent {
 
   plus(){
 
-    console.log(this.ifstarted, this.ifautostarted)
     if(!this.ifstarted && !this.ifautostarted){
 
       
@@ -127,7 +126,6 @@ export class MinesComponent {
 
   minus(){
 
-    console.log(this.ifstarted, this.ifautostarted)
 
   if(!this.ifstarted && !this.ifautostarted){
 
@@ -161,7 +159,6 @@ export class MinesComponent {
     this.automineopened = false;
     this.ifcanstop = false;
     this.kliknieteMiny.clear();
-    console.log(this.ifcanstop)
     for (let skibidiIndex = 1; skibidiIndex <= 16; skibidiIndex++) {
       const minaSkibidi = document.getElementById('mine' + skibidiIndex) as HTMLElement;
       minaSkibidi.style.background = 'grey';
@@ -185,8 +182,6 @@ export class MinesComponent {
       return;
   }
 
-  console.log(`Starting game round ${this.gameCount + 1}`);
-  console.log(this.autoIndices);
 
   // **RESET MULTIPLIER AMOUNT** BEFORE STARTING NEW ROUND
   this.kwotafr = Number(this.kwota);  // Ensures kwotafr starts fresh each round
@@ -243,9 +238,7 @@ export class MinesComponent {
               
 
 
-              console.log("Before mine hit, kwotafr:", this.kwotafr);
               this.kwotafr = Number(this.kwota);
-              console.log("After mine hit, kwotafr reset to:", this.kwotafr);
 
 
               this.ryzyko = 0;
@@ -270,7 +263,6 @@ export class MinesComponent {
               if (this.liczbaRund > 0 && this.hajs - Number(this.kwota) >= 0) {
                 setTimeout(() => this.startauto(), 3000);
               } else {
-                console.log("All rounds completed!");
 
                 setTimeout(() => this.resetGame(), 3000)
               }
@@ -284,7 +276,6 @@ export class MinesComponent {
               }
   
               const multiplier = this.calculateMultiplier();
-              console.log(multiplier)
               this.kwotafr *= multiplier;
               this.updateZbierzButton();
   
@@ -315,7 +306,6 @@ export class MinesComponent {
                   setTimeout(() => this.startauto(), 3000);
                 } else {
                   
-                  console.log("All rounds completed!");
                 
                   setTimeout(() => this.resetGame(), 3000)
 
@@ -408,12 +398,10 @@ export class MinesComponent {
       if(this.kliknieteMiny.has(number) == false){
 
       this.kliknieteMiny.add(number);
-      console.log(this.kliknieteMiny)
       this.iloscOdkrytych++;
       const multiplier = this.calculateMultiplier();
   
       this.kwotafr *= multiplier;
-      console.log(this.kwotafr, multiplier);
   
       const mina = document.getElementById('mine' + number) as HTMLElement;
   
@@ -468,7 +456,6 @@ export class MinesComponent {
 
     mina.style.background = 'green';
     this.autoIndices.push(number)
-    console.log(this.autoIndices)
     this.iloscZielonych++;
     if(this.iloscZielonych >= 1){
       start.style.background = 'green';
@@ -491,7 +478,6 @@ export class MinesComponent {
       this.szansa = 0;
       this.pozostale = 16 - this.liczbamin
       this.iloscOdkrytych = 0;
-      console.log(this.kwotafr)
       this.kliknieteMiny.clear()
       
 
@@ -513,7 +499,6 @@ export class MinesComponent {
       setTimeout(() => this.clearMine(), 2000)
       
       this.ifstarted = false;
-    console.log(this.ifstarted)
   }
 
 
@@ -585,7 +570,6 @@ export class MinesComponent {
       }
       kwota_number = Number(this.kwota)
       this.kwotafr = kwota_number
-      console.log(this.kwotafr)
     }
     
   }
@@ -646,7 +630,6 @@ export class MinesComponent {
       }
       kwota_number = Number(this.kwota)
       this.kwotafr = kwota_number
-      console.log(this.kwotafr)
     }
     
   }
@@ -657,7 +640,6 @@ export class MinesComponent {
     if (zbierzButton) { // Check if the element exists
       zbierzButton.innerText = `Zbierz (${this.kwotafr.toFixed(2)} zł)`;
     } else {
-      console.error("Error: 'zbierz' button not found in the DOM.");
     }
   }
 
@@ -678,7 +660,7 @@ export class MinesComponent {
       auto.style.background = 'blue';
       manual.style.background = 'navy';
     }
-    console.log(this.ifauto);
+    
     for(let i = 1; i <= 16; i++){
       const mina = document.getElementById('mine' + i) as HTMLElement;
       mina.style.background = 'grey';
@@ -706,7 +688,6 @@ export class MinesComponent {
       auto.style.background = 'blue';
       manual.style.background = 'navy';
     }
-    console.log(this.ifauto);
     
     
   }
