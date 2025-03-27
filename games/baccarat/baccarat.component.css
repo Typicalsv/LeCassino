@@ -14,7 +14,7 @@
 
 
 body {
-    height: 100vh;
+    height: 90vh;
     color: rgb(245, 237, 166);
     background-color: #006400;
     padding: 0;
@@ -146,7 +146,7 @@ button:hover {
     justify-content:  center;
     display: flex;
     font-size: 40px;
-    margin-bottom: -80px;
+    padding-top: 20px;
    
 }
 
