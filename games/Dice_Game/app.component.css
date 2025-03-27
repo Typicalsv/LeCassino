@@ -1,6 +1,8 @@
 .game-container {
     text-align: center;
     padding: 20px;
+    color: white;
+
   }
   
   input {
@@ -38,7 +40,12 @@
   .game-over, h2, .result, .amount, .bet{
     font-size: x-large;
     font-weight: bold;
-    color: black;
+    color: white;
+
     margin-left: 50px;
   }
-  
+  body{
+    background-color: #006400;
+    height: 90vh;
+    color: white;
+  }
