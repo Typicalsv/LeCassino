@@ -2,24 +2,31 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { GlowowyComponent } from '../glowowy/glowowy.component';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-blackjack',
-  imports: [CommonModule, FormsModule, GlowowyComponent],
+  imports: [CommonModule, FormsModule,  RouterModule],
   templateUrl: './blackjack.component.html',
-  styleUrl: './blackjack.component.css'
+  styleUrls: ['./blackjack.component.css']
+
 })
+
+
+
 export class BlackjackComponent {
 
-  ngOnInit() {
-    
-    document.addEventListener("DOMContentLoaded", function() {  
+    ngOnInit() {
+      
+      
+
+
       const karty: string[] = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
       const value: number[] = [1, 2, 3, 4, 5, 6, 7, 8 ,9, 10, 10, 10, 10, 11];
       const newH1: HTMLHeadingElement = document.createElement("h1");
       const newH2: HTMLHeadingElement = document.createElement("h1");
       const stawka: HTMLElement | null = document.getElementById("stawka");
-     const kasa: HTMLInputElement | null = document.getElementById("kasa") as HTMLInputElement;
+      const kasa: HTMLInputElement | null = document.getElementById("kasa") as HTMLInputElement;
       const skarbonka: HTMLElement | null = document.getElementById("skarbonka");
       const buttonContainer = document.getElementById("buttonContainer") as HTMLElement;
       const wynik = document.getElementById("wynik") as HTMLElement;
@@ -44,7 +51,7 @@ export class BlackjackComponent {
       
 
       function applyStyles(button: HTMLButtonElement) {
-        // Apply styles directly to the button
+        
         button.style.backgroundColor = '#4CAF50'; // Background color
         button.style.width = '120px';
         button.style.height = '50px'; // Height (integer with px unit)
@@ -277,36 +284,42 @@ export class BlackjackComponent {
                         newH1.textContent = "BLACKJACK";
                         kasa_w_skarbonce += (parseFloat(kasa!.value) * 2.5);
                         updateSkarbonka();
-                        
+                        wynik.append(newH1);
                     } else if (handValue1 > 21) {
                         newH1.textContent = "HAND ONE BUST";
                     } else if (dealerHandValue > 21 || handValue1 > dealerHandValue) {
                         newH1.textContent = "HAND ONE WIN";
                         kasa_w_skarbonce += (parseFloat(kasa!.value) * 2);
                         updateSkarbonka();
-                        
+                        wynik.append(newH1);
                     } else if (dealerHandValue > handValue1) {
                         newH1.textContent = "HAND ONE LOSE";
+                        wynik.append(newH1);
                     } else {
                         newH1.textContent = "HAND ONE PUSH";
                         kasa_w_skarbonce += parseFloat(kasa!.value);
                         updateSkarbonka();
+                        wynik.append(newH1);
                     }
                     wynik.append(newH1);
                     if (ifblackjack2) {
                         newH2.textContent = "BLACKJACK";
                         kasa_w_skarbonce += (parseFloat(kasa!.value) * 2.5);
                         updateSkarbonka();
+                        wynik.append(newH2);
                         
                     } else if (handValue2 > 21) {
                         newH2.textContent = "HAND TWO BUST";
+                        wynik.append(newH2);
                     } else if (dealerHandValue > 21 || handValue2 > dealerHandValue) {
                         newH2.textContent = "HAND TWO WIN";
                         kasa_w_skarbonce += (parseFloat(kasa!.value) * 2);
                         updateSkarbonka();
+                        wynik.append(newH2);
                         
                     } else if (dealerHandValue > handValue2) {
                         newH2.textContent = "HAND TWO LOSE";
+                        wynik.append(newH2);
                     } else {
                         newH2.textContent = "HAND TWO PUSH";
                         kasa_w_skarbonce += parseFloat(kasa!.value);
@@ -323,16 +336,17 @@ export class BlackjackComponent {
                             newH1.textContent = "DEALER BUST";
                             kasa_w_skarbonce += (parseFloat(kasa!.value) * 2);
                             updateSkarbonka();
-                            
+                            wynik.append(newH1);
                         } else if (handValue > dealerHandValue) {
                             newH1.textContent = "YOU WIN";
                             kasa_w_skarbonce += (parseFloat(kasa!.value) * 2);
                             updateSkarbonka();
-                            
+                            wynik.append(newH1);
                         }else if(handValue == dealerHandValue){
                             newH1.textContent = "PUSH";
                             kasa_w_skarbonce += (parseFloat(kasa!.value) * 1);
                             updateSkarbonka();
+                            wynik.append(newH1);
                         } 
                         else {
                             wynik.append(newH1);
@@ -350,16 +364,19 @@ export class BlackjackComponent {
                                 newH1.textContent = "DEALER BUST";
                                 kasa_w_skarbonce += (parseFloat(kasa!.value) * 2);
                                 updateSkarbonka();
+                                wynik.append(newH1);
                               
                             } else if (handValue > dealerHandValue) {
                                 newH1.textContent = "YOU WIN";
                                 kasa_w_skarbonce += (parseFloat(kasa!.value) * 2);
                                 updateSkarbonka();
+                                wynik.append(newH1);
                                 
                             }else if(handValue == dealerHandValue){
                                 newH1.textContent = "PUSH";
                                 kasa_w_skarbonce += (parseFloat(kasa!.value) * 1);
                                 updateSkarbonka();
+                                wynik.append(newH1);
                             } 
                             else {
                                 newH1.textContent = "YOU LOSE";
@@ -538,7 +555,7 @@ export class BlackjackComponent {
               }
               if (skarbonka) {
                   skarbonka.textContent = kasa_w_skarbonce.toString();
-              }
+              } 
       
               if (handValue > 21) {
                   newH1.textContent = "YOU LOST";
@@ -553,6 +570,6 @@ export class BlackjackComponent {
           }
       }
   
-  });
-}
+    }
+
 }
