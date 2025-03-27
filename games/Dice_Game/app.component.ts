@@ -1,15 +1,16 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-dices',
   imports: [RouterOutlet, FormsModule, CommonModule],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  templateUrl: './dices.component.html',
+  styleUrl: './dices.component.css'
 })
-export class AppComponent {
+export class DicesComponent {
+
   balance = 100; //zmienne :)
   bet = 2;
   betAmount = 0;
