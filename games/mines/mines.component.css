@@ -1,28 +1,31 @@
-body{
+body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    height: 100vh;
+    height: 100%;
     background-color: rgb(1, 1, 168);
-    
     width: 100%;
 }
 
+html {
+    height: 90vh;
+    width: 100%;
+}
 
-.containerRight{
+.containerRight {
     display: inline-grid;
     grid-template-columns: auto auto auto auto;
     height: 600px;
     width: 600px;
 }
 
-.containerRight div{
+.containerRight div {
     margin: 0;
     padding: 0;
     width: 50%;
     height: 100%;
     background-color: grey;
-    border:  1px solid black;
+    border: 1px solid black;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -31,31 +34,39 @@ body{
     font-weight: bold;
     overflow: hidden;
     text-overflow: ellipsis;
-    width: 150px;
-    height: 150px;
+    width: auto;
+    height: auto;
     cursor: pointer;
     border-radius: 10%;
     margin: 5px;
 }
-.containerRight div:hover{
-background-color: rgb(150, 150, 150);
+
+.containerRight div:hover {
+    background-color: rgb(150, 150, 150);
 }
 
-.containerLeft{
+@media (max-width: 1200px) {
+    html {
+        height: 170vh; 
+    }
+    
+}
+
+.containerLeft {
     height: 600px;
-    width: 32%;
+    width: auto;
     background-color: navy;
     border-radius: 30px;
 }
 
-.container{
+.container {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap-reverse;
-    padding-top: 80px ;
+    height: 90%;
 }
 
-.containerTop{
+.containerTop {
     margin-top: 5%;
     background-color: blue;
     height: 30%;
@@ -64,8 +75,8 @@ background-color: rgb(150, 150, 150);
     margin-left: 5%;
     border-radius: 20px;
 }
-.containerMid{
-    
+
+.containerMid {
     height: 10%;
     margin-bottom: 5%;
     width: 90%;
@@ -78,12 +89,10 @@ background-color: rgb(150, 150, 150);
     font-size: 30px;
 }
 
-#start{
+#start {
     background-color: green;
     height: 100%;
-    
     width: 100%;
-    
     border-radius: 20px;
     color: white;
     display: flex;
@@ -91,11 +100,13 @@ background-color: rgb(150, 150, 150);
     align-items: center;
     font-size: 30px;
 }
-#start:hover{
+
+#start:hover {
     background-color: rgb(0, 168, 0);
     cursor: pointer;
 }
-.containerBot{
+
+.containerBot {
     background-color: blue;
     height: 40%;
     width: 90%;
@@ -105,33 +116,20 @@ background-color: rgb(150, 150, 150);
     flex-direction: column;
 }
 
-.containerTop p{
+.containerTop p {
     font-size: 15px;
     color: white;
     text-align: start;
     margin-top: 5%;
     margin-left: 10%;
     font-weight: bold;
-    
 }
-#first{
+
+#first {
     padding-top: 3%;
 }
 
-.containerBotLeft{
-    
-    width: 50%;
-    height: 80%;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    border-radius: 20px;
-    margin-top: 5%;
-}
-.containerBotRight{
-   
+.containerBotLeft {
     width: 50%;
     height: 80%;
     color: white;
@@ -143,12 +141,24 @@ background-color: rgb(150, 150, 150);
     margin-top: 5%;
 }
 
-.pole{
+.containerBotRight {
+    width: 50%;
+    height: 80%;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 20px;
+    margin-top: 5%;
+}
+
+.pole {
     display: flex;
     justify-content: space-between;
 }
 
-.pole div{
+.pole div {
     background-color: navy;
     border: 2px solid white;
     border-radius: 5px;
@@ -160,11 +170,12 @@ background-color: rgb(150, 150, 150);
     margin-left: 5px;
 }
 
-.auto{
+.auto {
     display: flex;
-
+    width: 100%;
 }
-.auto div{
+
+.auto div {
     background-color: navy;
     border: 2px solid white;
     border-radius: 5px;
@@ -175,19 +186,17 @@ background-color: rgb(150, 150, 150);
     width: 110px;
     margin-left: 5px;
 }
-.containerMiny{
+
+.containerMiny {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
     background-color: navy;
     margin-top: 5%;
-    
-    
 }
 
-#plus, #minus{
-    
+#plus, #minus {
     display: flex;
     background-color: navy;
     align-items: center;
@@ -195,9 +204,9 @@ background-color: rgb(150, 150, 150);
     height: 150%;
     width: 30px;
     border: 2px solid white;
-    
 }
-#miny{
+
+#miny {
     display: flex;
     background-color: navy;
     align-items: center;
@@ -205,28 +214,27 @@ background-color: rgb(150, 150, 150);
     height: 150%;
     width: 100px;
     border-top: 2px solid white;
-    
-
-    
 }
-#plus{
+
+#plus {
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     cursor: pointer;
 }
-#minus{
-    
+
+#minus {
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
     cursor: pointer;
 }
-.liczbamin{
+
+.liczbamin {
     height: 10px;
     margin-bottom: -1px;
     margin-top: -17%;
-
 }
-#liczbamin{
+
+#liczbamin {
     border-bottom: 2px solid white;
     background-color: navy;
     height: auto;
@@ -234,14 +242,15 @@ background-color: rgb(150, 150, 150);
     text-align: center;
 }
 
-.containerFinish{
+.containerFinish {
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 100%;
     width: 100%;
 }
-.containerFinish #zbierz{
+
+.containerFinish #zbierz {
     background-color: blue;
     height: 100%;
     width: 45%;
@@ -251,7 +260,8 @@ background-color: rgb(150, 150, 150);
     justify-content: center;
     cursor: pointer;
 }
-.containerFinish #zachowaj{
+
+.containerFinish #zachowaj {
     background-color: green;
     cursor: pointer;
     height: 100%;
@@ -262,17 +272,15 @@ background-color: rgb(150, 150, 150);
     justify-content: center;
 }
 
-.containerFinish  #zbierz:hover{
+.containerFinish #zbierz:hover {
     background-color: rgb(83, 83, 255);
-    
 }
-.containerFinish  #zachowaj:hover{
+
+.containerFinish #zachowaj:hover {
     background-color: rgb(0, 168, 0);
 }
 
-
-
-#hajs{
+#hajs {
     background-color: navy;
     border: 2px solid white;
     height: 80%;
@@ -287,12 +295,12 @@ background-color: rgb(150, 150, 150);
     border-radius: 20px;
     margin-top: 15px;
 }
-#manual{
+
+#manual {
     background-color: blue;
 }
 
-
-#rundy{
+#rundy {
     display: flex;
     background-color: navy;
     align-items: center;
@@ -301,12 +309,9 @@ background-color: rgb(150, 150, 150);
     width: 100px;
     border-top: 2px solid white;
     text-align: center;
-
-    
 }
 
-
-#liczbaRund{
+#liczbaRund {
     border-bottom: 2px solid white;
     background-color: navy;
     height: auto;
@@ -314,7 +319,7 @@ background-color: rgb(150, 150, 150);
     text-align: center;
 }
 
-.containerRundy{
+.containerRundy {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -322,20 +327,16 @@ background-color: rgb(150, 150, 150);
     background-color: navy;
     margin-top: 5%;
     height: 100%;
-    
 }
+
 .containerRundy #plus, .containerRundy #minus.containerRundy #plus, .containerRundy #minus {
-    
-height: 35px;
+    height: 35px;
 }
 
-
-#autoStart{
+#autoStart {
     background-color: grey;
     height: 100%;
-    
     width: 100%;
-    
     border-radius: 20px;
     color: white;
     display: flex;
@@ -344,26 +345,23 @@ height: 35px;
     font-size: 30px;
 }
 
-.containerTopBot{
+.containerTopBot {
     display: flex;
     height: 60%;
 }
 
-.containerBotBot{
+.containerBotBot {
     display: flex;
     height: 30%;
 }
 
-#autoEnd{
+#autoEnd {
     background-color: rgb(255, 0, 0);
     height: 100%;
-    
     width: 100%;
-    
     border-radius: 20px;
     color: white;
     display: flex;
-    justify-content: center;
     align-items: center;
     font-size: 30px;
 }
