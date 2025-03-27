@@ -1,7 +1,7 @@
 .slot-machine {
     height: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     text-align: center;
     font-size: 2rem;
     
@@ -10,8 +10,12 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    justify-content: center;
     width: 30%;
 }
+
+
+
 .center{
     display: flex;
     flex-direction: column;
@@ -57,19 +61,18 @@ button {
     font-weight: bold;
     transition: all 0.5s ease-in-out;
 }
-  
   button:hover {
-    /*gdy się najedzie*/
     background: linear-gradient( #006600, #00aa00);
     transform: scale(1.05);
 }
+
+
   button:disabled {
-    /*gdy się kręci to znika*/
     background: gray;
     cursor: not-allowed;
     transform: none;
 }
-  
+
 .result {
     margin-top: 15px;
     font-weight: bold;
@@ -115,13 +118,21 @@ button {
   }
   
   .bet-controls button:hover {
-    /*gdy się najedzie*/
     background: linear-gradient( #006600, #00aa00);
     transform: scale(1.05);
   }
   
-  .gif {
-    width: 200px;
+  body{
+    background-color: #006400;
+    height: 90vh;
+}
+
+.kaska{
     display: flex;
-    flex-direction: row-reverse;
-  }
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding-right: 30%;
+    
+}
