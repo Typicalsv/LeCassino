@@ -1,15 +1,14 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { RouterModule, RouterOutlet } from '@angular/router';
 
 @Component({
-  selector: 'app-root',
-  imports: [FormsModule, RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  selector: 'app-slots',
+  imports: [RouterOutlet, RouterModule],
+  templateUrl: './slots.component.html',
+  styleUrl: './slots.component.css'
 })
-export class AppComponent {
-  symbols = ['🍒', '🍋', '🍋‍🟩', '🍉', '🍇', '💰'];// win + ;  symbole
+export class SlotsComponent {
+  symbols = ['🍒', '🍋', '🎰', '🍉', '🍇', '💰'];// win + ;  symbole
   reels = ['❔', '❔', '❔'];
   isSpinning = false;
   resultMessage = '';
@@ -19,14 +18,14 @@ export class AppComponent {
   maxBet = 10000;
   betInGame = 0;   // max zaklad
 
-  spinReels() { //brak środkow
+  spinReels() { 
 
     if (this.balance < this.betAmount) {
       this.resultMessage = '❌ Brak środków!';
       return;
     }
     
-    this.isSpinning = true;
+    this.isSpinning = true
     this.resultMessage = '';
     this.balance -= this.betAmount; // koszt krecenia
     this.betInGame = this.betAmount; // przypisanie bet do zakręcena (błąd z zmianą bet podczas kręcenia)
@@ -65,7 +64,7 @@ export class AppComponent {
     }else if (first === second || first === third || second === third) {
       const winnings = this.betInGame * 1.5; // pryz dwoch takich samych mnożnik x2
       this.balance += winnings;
-      this.resultMessage = 'wygrana' + winnings;
+      this.resultMessage = 'wygrana ' + winnings;
     } else {
       this.resultMessage = 'spróbuj ponownie';
     }
