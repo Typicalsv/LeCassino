@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { GlowowyComponent } from '../glowowy/glowowy.component';
+import { RouterOutlet } from '@angular/router';
 
 type Bet = {
   number: number | string;
@@ -8,7 +9,7 @@ type Bet = {
 
 @Component({
   selector: 'app-ruleta',
-  imports: [GlowowyComponent],
+  imports: [ RouterOutlet],
   templateUrl: './ruleta.component.html',
   styleUrl: './ruleta.component.css'
 })
@@ -45,11 +46,14 @@ export class RuletaComponent {
   cancelBet(number: number | string): void {
     const betIndex: number = this.bets.findIndex(bet => bet.number == number); 
     if (betIndex !== -1) {
+      console.log(`Cancelling bet on ${number}`);
       this.money += this.bets[betIndex].amount;
       this.bets.splice(betIndex, 1);
       this.updateMoneyDisplay();
       this.updateBetsDisplay();
-    } 
+    } else {
+      console.log(`Bet on ${number} not found`);
+    }
   }
 
   spinWheel(): void {
