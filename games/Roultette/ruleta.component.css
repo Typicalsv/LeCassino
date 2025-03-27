@@ -8,7 +8,7 @@ main{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 90vh;
 }
 
 #roulette-table {
@@ -19,7 +19,7 @@ main{
     justify-content: center;
     align-items: center;
     width: 40%;
-    height: 50%;
+    height: 30%;
 }
 
 table {
