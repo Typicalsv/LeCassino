@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { GlowowyComponent } from '../glowowy/glowowy.component';
+import { RouterOutlet } from '@angular/router';
 
 
 @Component({
   selector: 'app-mines',
-  imports: [CommonModule, FormsModule, GlowowyComponent],
+  imports: [CommonModule, FormsModule, RouterOutlet],
   templateUrl: './mines.component.html',
   styleUrl: './mines.component.css'
 })
@@ -32,7 +33,7 @@ export class MinesComponent {
   kwotafr: number = Number(this.kwota)
   iloscOdkrytych: number =0;
   aktualnaWygrana: number =0;
-  hajs: number = 10000.00;
+  hajs: number = 1000.00;
   iloscZielonych: number = 0;
 
   
@@ -639,8 +640,7 @@ export class MinesComponent {
   
     if (zbierzButton) { // Check if the element exists
       zbierzButton.innerText = `Zbierz (${this.kwotafr.toFixed(2)} zł)`;
-    } else {
-    }
+    } 
   }
 
   
@@ -660,7 +660,6 @@ export class MinesComponent {
       auto.style.background = 'blue';
       manual.style.background = 'navy';
     }
-    
     for(let i = 1; i <= 16; i++){
       const mina = document.getElementById('mine' + i) as HTMLElement;
       mina.style.background = 'grey';
