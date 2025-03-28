@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { GlowowyComponent } from '../glowowy/glowowy.component';
+import { AppComponent } from '../app.component';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
@@ -12,7 +12,12 @@ import { RouterOutlet } from '@angular/router';
 })
 export class BaccaratComponent implements OnInit {
 
-  money: number = 5000;
+constructor(private appComponent: AppComponent) {
+    this.money = parseFloat(this.appComponent.kaska.toFixed(2)); // pieniadze początkowe
+  }
+
+
+  money: number;
   bet: number = 0;
   playerMoney: number = 0;
   tieMoney: number = 0;
@@ -55,14 +60,15 @@ export class BaccaratComponent implements OnInit {
     if (this.bet <= 0 || this.bet > this.money || Number.isNaN(this.bet)) {
       alert('Invalid bet amount!');
     } else {
-      this.money -= this.bet;
+      this.money = this.money - this.bet
+      this.money = parseFloat(this.money.toFixed(2))
       this.playerMoney += this.bet;
 
       this.playerbetplayer = true;
       this.playerbettie = false;
       this.playerbetbanker = false;
 
-
+      this.appComponent.kaska = parseFloat(this.money.toFixed(2));
       
         this.deal();
       }
@@ -81,13 +87,14 @@ export class BaccaratComponent implements OnInit {
     if (this.bet <= 0 || this.bet > this.money || Number.isNaN(this.bet)) {
       alert('Invalid bet amount!');
     } else {
-      this.money -= this.bet;
+      this.money = this.money - this.bet
+      this.money = parseFloat(this.money.toFixed(2))
       this.tieMoney += this.bet;
 
       this.playerbetplayer = false;
       this.playerbettie = true;
       this.playerbetbanker = false;
-
+      this.appComponent.kaska = parseFloat(this.money.toFixed(2));
       
         this.deal();
       }
@@ -106,9 +113,10 @@ export class BaccaratComponent implements OnInit {
     if (this.bet <= 0 || this.bet > this.money || Number.isNaN(this.bet)) {
       alert('Invalid bet amount!');
     } else {
-      this.money -= this.bet;
+      this.money = this.money - this.bet
+      this.money = parseFloat(this.money.toFixed(2))
       this.bankerMoney += this.bet;
-
+      this.appComponent.kaska = parseFloat(this.money.toFixed(2));
       this.playerbetplayer = false;
       this.playerbettie = false;
       this.playerbetbanker = true;
@@ -199,17 +207,20 @@ export class BaccaratComponent implements OnInit {
     if (this.playerbetplayer == true) {
       if (this.playerScore > this.bankerScore) {
         this.money += this.playerMoney * 2;
+        this.money = parseFloat(this.money.toFixed(2))
         this.result = 'Player wins!';
       } else if (this.playerScore < this.bankerScore) {
         this.result = 'Banker wins!';
       } else {
-        this.money += this.playerMoney;
+        this.money += this.playerMoney ;
+        this.money = parseFloat(this.money.toFixed(2))
         this.result = 'Tie!';
       }
       this.result += " You bet player";
     } else if (this.playerbettie == true) {
       if (this.playerScore == this.bankerScore) {
-        this.money += this.tieMoney * 9;
+        this.money += this.tieMoney * 8;
+        this.money = parseFloat(this.money.toFixed(2))
         this.result = 'Tie!';
       } else {
         this.result = 'Banker wins!';
@@ -220,15 +231,18 @@ export class BaccaratComponent implements OnInit {
         this.result = 'Player wins!';
       } else if (this.playerScore < this.bankerScore) {
         this.money += this.bankerMoney * (19/20);
+        this.money = parseFloat(this.money.toFixed(2))
         this.result = 'Banker wins!';
       } else {
         this.money += this.bankerMoney;
+        this.money = parseFloat(this.money.toFixed(2))
         this.result = 'Tie!';
       }
       this.result += " You bet banker";
     }
     this.gameOver = true; 
     this.gameStarted = false;
+    this.appComponent.kaska = parseFloat(this.money.toFixed(2));
   }
 
   replayGame() {
