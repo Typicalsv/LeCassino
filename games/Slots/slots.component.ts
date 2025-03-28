@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterModule, RouterOutlet } from '@angular/router';
-
+import { AppComponent } from '../app.component';
 @Component({
   selector: 'app-slots',
   imports: [RouterOutlet, RouterModule],
@@ -8,15 +8,24 @@ import { RouterModule, RouterOutlet } from '@angular/router';
   styleUrl: './slots.component.css'
 })
 export class SlotsComponent {
+  constructor(private appComponent: AppComponent) {
+    this.balance = this.appComponent.kaska; // pieniadze początkowe
+  }
+
+
   symbols = ['🍒', '🍋', '🎰', '🍉', '🍇', '💰'];// win + ;  symbole
   reels = ['❔', '❔', '❔'];
   isSpinning = false;
   resultMessage = '';
-  balance = 100; // pieniadze początkowe
+  balance: number; // pieniadze początkowe
   betAmount = 1; // koszt
   minBet = 1;     // min zaklad
   maxBet = 10000;
   betInGame = 0;   // max zaklad
+
+
+ 
+
 
   spinReels() { 
 
@@ -27,7 +36,8 @@ export class SlotsComponent {
     
     this.isSpinning = true
     this.resultMessage = '';
-    this.balance -= this.betAmount; // koszt krecenia
+    this.balance -= this.betAmount;
+    this.balance = parseFloat(this.balance.toFixed(2)) // koszt krecenia
     this.betInGame = this.betAmount; // przypisanie bet do zakręcena (błąd z zmianą bet podczas kręcenia)
   
     let intervals: any[] = []; //tablica do intervalów
@@ -60,14 +70,18 @@ export class SlotsComponent {
     if (first === second && second === third) {
       const winnings = this.betInGame * 100; //mnośnik wygranej
       this.balance += winnings;
+      this.balance = parseFloat(this.balance.toFixed(2))
       this.resultMessage = 'WYGRANA🎉' + winnings;
     }else if (first === second || first === third || second === third) {
       const winnings = this.betInGame * 1.5; // pryz dwoch takich samych mnożnik x2
       this.balance += winnings;
+      this.balance = parseFloat(this.balance.toFixed(2))
       this.resultMessage = 'wygrana ' + winnings;
     } else {
       this.resultMessage = 'spróbuj ponownie';
     }
+    this.balance = parseFloat(this.balance.toFixed(2))
+    this.appComponent.kaska = this.balance
   }
   
   increaseBet() {
