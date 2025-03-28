@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { GlowowyComponent } from '../glowowy/glowowy.component';
 import { RouterOutlet } from '@angular/router';
-
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-mines',
@@ -12,6 +12,12 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './mines.component.css'
 })
 export class MinesComponent {
+
+    constructor(private appComponent: AppComponent) {
+        this.hajs = parseFloat(this.appComponent.kaska.toFixed(2)); 
+       
+      }
+
 
   liczbamin:number=2;
   liczbaRund:number=10;
@@ -33,7 +39,7 @@ export class MinesComponent {
   kwotafr: number = Number(this.kwota)
   iloscOdkrytych: number =0;
   aktualnaWygrana: number =0;
-  hajs: number = 1000.00;
+  hajs: number;
   iloscZielonych: number = 0;
 
   
@@ -211,6 +217,9 @@ export class MinesComponent {
         this.ifstarted = true;
         this.usedIndices.clear();
         this.hajs -= Number(this.kwota);
+        this.hajs = parseFloat(this.hajs.toFixed(2))
+        this.appComponent.kaska = parseFloat(this.hajs.toFixed(2))
+
         this.iloscOdkrytych = 0; // Reset before starting new round
   
         for (let i = 0; i < this.liczbamin; i++) {
@@ -240,7 +249,8 @@ export class MinesComponent {
 
 
               this.kwotafr = Number(this.kwota);
-
+              this.hajs = parseFloat(this.hajs.toFixed(2))
+              this.appComponent.kaska = parseFloat(this.hajs.toFixed(2))
 
               this.ryzyko = 0;
               this.otwarte = 0;
@@ -283,7 +293,9 @@ export class MinesComponent {
               if (this.iloscOdkrytych === this.autoIndices.length) {
                 this.hajs = Math.round((this.hajs + Number(this.kwotafr.toFixed(2))) * 100) / 100;
                 this.kwotafr = Number(this.kwota);
-                
+                this.hajs = parseFloat(this.hajs.toFixed(2))
+                this.appComponent.kaska = parseFloat(this.hajs.toFixed(2))
+
                 
                 this.ifreplay = true;
                 
@@ -358,6 +370,8 @@ export class MinesComponent {
         }
         this.usedIndices.clear();
         this.hajs -= Number(this.kwota);
+        this.hajs = parseFloat(this.hajs.toFixed(2))
+        this.appComponent.kaska = parseFloat(this.hajs.toFixed(2))
 
         for (let i = 0; i < this.liczbamin; i++) {
           let randomIndex;
@@ -372,6 +386,8 @@ export class MinesComponent {
        }else {
         this.usedIndices.clear();
         this.hajs -= Number(this.kwota);
+        this.hajs = parseFloat(this.hajs.toFixed(2))
+        this.appComponent.kaska = parseFloat(this.hajs.toFixed(2))
 
         for (let i = 0; i < this.liczbamin; i++) {
           let randomIndex;
@@ -470,7 +486,9 @@ export class MinesComponent {
   zbierz(){
     this.hajs = Math.round((this.hajs + Number(this.kwotafr.toFixed(2))) * 100) / 100;
       this.kwotafr = Number(this.kwota);
-      
+      this.hajs = parseFloat(this.hajs.toFixed(2))
+      this.appComponent.kaska = parseFloat(this.hajs.toFixed(2))
+
       
       this.ifreplay = true;
       this.liczbamin = 2;
