@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { GlowowyComponent } from '../glowowy/glowowy.component';
 import { RouterOutlet } from '@angular/router';
+import { AppComponent } from '../app.component';
 
 type Bet = {
   number: number | string;
@@ -14,7 +14,11 @@ type Bet = {
   styleUrl: './ruleta.component.css'
 })
 export class RuletaComponent {
-
+constructor(private appComponent: AppComponent) {
+    this.money = this.appComponent.kaska; // pieniadze początkowe
+    console.log(this.appComponent.kaska)
+    console.log(this.money)
+  }
 
   wheelNumbers: number[] = [
     0, 32, 15, 19, 4, 21, 2, 25, 17, 34, 6, 27, 13, 36, 
@@ -24,7 +28,7 @@ export class RuletaComponent {
 
   bets: Bet[] = [];
   isSpinning: boolean = false;
-  money: number = 1000;
+  money: number;
   previousResults: { number: number, color: string }[] = [];
   spinInterval!: number;
 
@@ -119,6 +123,7 @@ export class RuletaComponent {
     this.bets = [];
     this.updateBetsDisplay();
     this.updatePreviousResults(winningNumber, this.isRed(winningNumber) ? 'Red' : this.isBlack(winningNumber) ? 'Black' : 'Green');
+    this.appComponent.kaska = this.money
   }
 
   updateBetsDisplay(): void {
