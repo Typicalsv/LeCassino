@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
-
+import { AppComponent } from '../app.component';
 @Component({
   selector: 'app-dices',
   imports: [RouterOutlet, FormsModule, CommonModule],
@@ -11,7 +11,13 @@ import { RouterOutlet } from '@angular/router';
 })
 export class DicesComponent {
 
-  balance = 100; //zmienne :)
+
+constructor(private appComponent: AppComponent) {
+    this.balance = this.appComponent.kaska; // pieniadze początkowe
+  }
+
+
+  balance: number; 
   bet = 2;
   betAmount = 0;
   dice1 = 0;
@@ -29,8 +35,8 @@ export class DicesComponent {
     this.result = this.dice1 + this.dice2;
 
     if (this.result === this.bet) {
-      this.balance += this.betAmount * 10; // wygrana x10
-      this.resultMessage = `WYGRANA🎉, otrzymujesz ${this.betAmount * 10} zł`;
+      this.balance += this.betAmount * 5; // wygrana x5
+      this.resultMessage = `WYGRANA🎉, otrzymujesz ${this.betAmount * 5} zł`;
     } else if (this.result != this.bet){
       this.balance -= this.betAmount; // przegrana -bet
       this.resultMessage = `Spróbuj ponownie, straciłeś ${this.betAmount} zł`;
@@ -38,5 +44,9 @@ export class DicesComponent {
       this.balance = 0; //brak środkow
       this.resultMessage = `❌ Brak środków!`;
     }
+    this.balance = parseFloat(this.balance.toFixed(2))
+     this.appComponent.kaska = this.balance;
+
+
   }
 }
