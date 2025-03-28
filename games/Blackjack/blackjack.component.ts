@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { GlowowyComponent } from '../glowowy/glowowy.component';
+import { AppComponent } from '../app.component';
 import { RouterModule } from '@angular/router';
 
 @Component({
@@ -15,10 +16,16 @@ import { RouterModule } from '@angular/router';
 
 
 export class BlackjackComponent {
+    kasa_w_skarbonce: number = 0; // Initialize with a default value
+    constructor(private appComponent: AppComponent) {
+        this.kasa_w_skarbonce = parseFloat(this.appComponent.kaska.toFixed(2)); // pieniadze początkowe
+        
+      }
 
+      
     ngOnInit() {
       
-      
+       
 
 
       const karty: string[] = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
@@ -102,16 +109,17 @@ export class BlackjackComponent {
       let hand2: string[] = [];
       let handValue1: number = 0;
       let handValue2: number = 0;
-      let kasa_w_skarbonce: number = 1000;
+      let kasa_w_skarbonce: number = this.kasa_w_skarbonce; 
+      
   
       if (kasa) {
           let stawkaLiczba: number = parseFloat(kasa.value);
           if (skarbonka) {
-              skarbonka.textContent = kasa_w_skarbonce.toString();
+              skarbonka.textContent = this.kasa_w_skarbonce.toString();
           }
       } 
   
-      function START() {
+      const START = () => {
           if (kasa) {
               const stake: number = parseFloat(kasa.value);
               if (stake > 0 && kasa_w_skarbonce - stake >= 0) {
@@ -125,8 +133,9 @@ export class BlackjackComponent {
                       stawka.textContent = "STAWKA: " + stake;
                   }
                   kasa_w_skarbonce -= stake;
+                  this.appComponent.kaska = parseFloat(kasa_w_skarbonce.toFixed(2))
                   if (skarbonka) {
-                      skarbonka.textContent = kasa_w_skarbonce.toString();
+                      skarbonka.textContent = kasa_w_skarbonce.toFixed(2).toString();
                   }
   
                   document.getElementById("Karty")!.innerHTML = `Hand: ${playerHand.join(" ")}`;
@@ -186,7 +195,7 @@ export class BlackjackComponent {
           }
       }
   
-      function hit() {
+      const hit = () => {
           const randomIndex = Math.floor(Math.random() * karty.length);
   
           
@@ -228,6 +237,7 @@ export class BlackjackComponent {
                   buttonDouble.remove();
                   buttonSplit.remove();
                   wynik.append(buttonReplay);
+                  this.appComponent.kaska = parseFloat(kasa_w_skarbonce.toFixed(2))
               }
           }
   
@@ -235,9 +245,12 @@ export class BlackjackComponent {
               document.getElementById("split")!.remove();
           }
       }
-      function updateSkarbonka() {
+      const updateSkarbonka = () => {
         if (skarbonka) {
-            skarbonka.textContent = kasa_w_skarbonce.toString();
+            this.appComponent.kaska = parseFloat(kasa_w_skarbonce.toFixed(2))
+            skarbonka.textContent = kasa_w_skarbonce.toFixed(2).toString();
+           
+            
         }
     }
     
@@ -357,6 +370,7 @@ export class BlackjackComponent {
                         if (ifblackjack) {
                             newH1.textContent = "BLACKJACK";
                             kasa_w_skarbonce += (parseFloat(kasa!.value) * 2.5);
+                            
                             updateSkarbonka();
                             
                         }else{
@@ -370,6 +384,7 @@ export class BlackjackComponent {
                                 newH1.textContent = "YOU WIN";
                                 kasa_w_skarbonce += (parseFloat(kasa!.value) * 2);
                                 updateSkarbonka();
+                                
                                 wynik.append(newH1);
                                 
                             }else if(handValue == dealerHandValue){
@@ -394,7 +409,7 @@ export class BlackjackComponent {
         
     }
     
-    // Call updateSkarbonka in other relevant places
+   
     function replay() {
         document.getElementById("KartyD")!.innerHTML = ``;
         document.getElementById("WartośćD")!.innerHTML = ``;
@@ -451,7 +466,7 @@ export class BlackjackComponent {
             stawka.textContent = "STAWKA: " + (stake * 2);
         }
         if (skarbonka) {
-          skarbonka.textContent = kasa_w_skarbonce.toString();
+          skarbonka.textContent = kasa_w_skarbonce.toFixed(2).toString();
       }
           document.getElementById("split")!.remove();
           buttonStand.onclick = function() {buttonHit.onclick = function() {splitHitTwo()}}
@@ -554,7 +569,7 @@ export class BlackjackComponent {
                   stawka.textContent = "STAWKA: " + (stake * 2);
               }
               if (skarbonka) {
-                  skarbonka.textContent = kasa_w_skarbonce.toString();
+                  skarbonka.textContent = kasa_w_skarbonce.toFixed(2).toString();
               } 
       
               if (handValue > 21) {
@@ -569,7 +584,9 @@ export class BlackjackComponent {
               }
           }
       }
-  
+      
+      
+      
     }
 
 }
