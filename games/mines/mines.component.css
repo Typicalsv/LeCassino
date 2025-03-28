@@ -1,3 +1,6 @@
+
+
+
 body {
     margin: 0;
     padding: 0;
@@ -17,6 +20,7 @@ html {
     grid-template-columns: auto auto auto auto;
     height: 600px;
     width: 600px;
+    
 }
 
 .containerRight div {
@@ -34,11 +38,12 @@ html {
     font-weight: bold;
     overflow: hidden;
     text-overflow: ellipsis;
-    width: auto;
-    height: auto;
+    width: 150px;
+    height: 150px;
     cursor: pointer;
     border-radius: 10%;
     margin: 5px;
+    
 }
 
 .containerRight div:hover {
@@ -53,10 +58,12 @@ html {
 }
 
 .containerLeft {
-    height: 600px;
+    height: 640px;
     width: auto;
     background-color: navy;
     border-radius: 30px;
+    margin-bottom: -34px;
+    
 }
 
 .container {
@@ -251,9 +258,9 @@ html {
 }
 
 .containerFinish #zbierz {
-    background-color: blue;
+    background-color: green;
     height: 100%;
-    width: 45%;
+    width: 100%;
     border-radius: 20px;
     display: flex;
     align-items: center;
@@ -363,5 +370,7 @@ html {
     color: white;
     display: flex;
     align-items: center;
+    justify-content: center;
     font-size: 30px;
+   
 }
