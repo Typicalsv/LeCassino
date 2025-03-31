@@ -67,12 +67,12 @@ constructor(private appComponent: AppComponent) {
       this.playerbetplayer = true;
       this.playerbettie = false;
       this.playerbetbanker = false;
-
+      this.gameStarted = true;
       this.appComponent.kaska = parseFloat(this.money.toFixed(2));
       
         this.deal();
       }
-      this.gameStarted = true;
+      
     }
   }
 
@@ -94,11 +94,12 @@ constructor(private appComponent: AppComponent) {
       this.playerbetplayer = false;
       this.playerbettie = true;
       this.playerbetbanker = false;
+      this.gameStarted = true;
+
       this.appComponent.kaska = parseFloat(this.money.toFixed(2));
       
         this.deal();
       }
-      this.gameStarted = true;
     }
   }
 
@@ -120,11 +121,11 @@ constructor(private appComponent: AppComponent) {
       this.playerbetplayer = false;
       this.playerbettie = false;
       this.playerbetbanker = true;
-
+      this.gameStarted = true;
       
         this.deal();
       }
-      this.gameStarted = true;
+     
     }
   }
 
@@ -230,7 +231,7 @@ constructor(private appComponent: AppComponent) {
       if (this.playerScore > this.bankerScore) {
         this.result = 'Player wins!';
       } else if (this.playerScore < this.bankerScore) {
-        this.money += this.bankerMoney * (19/20);
+        this.money += this.bankerMoney * (1 + (19/20));
         this.money = parseFloat(this.money.toFixed(2))
         this.result = 'Banker wins!';
       } else {
