@@ -122,6 +122,8 @@ constructor(private appComponent: AppComponent) {
       }
     });
     this.money += winnings;
+    this.money = parseFloat(this.money.toFixed(2));
+    this.appComponent.kaska = this.money;
     this.updateMoneyDisplay();
     this.bets = [];
     this.updateBetsDisplay();
