@@ -16,8 +16,7 @@ type Bet = {
 export class RuletaComponent {
 constructor(private appComponent: AppComponent) {
     this.money = this.appComponent.kaska; // pieniadze początkowe
-    console.log(this.appComponent.kaska)
-    console.log(this.money)
+    
   }
 
   wheelNumbers: number[] = [
@@ -34,13 +33,15 @@ constructor(private appComponent: AppComponent) {
 
   placeBet(number: number | string): void {
     if (this.isSpinning) return;
-    const betAmount: number = parseInt((document.getElementById('bet-amount') as HTMLInputElement).value);
+    const betAmount: number = parseFloat((document.getElementById('bet-amount') as HTMLInputElement).value);
+    
     if (!betAmount || betAmount <= 0 || betAmount > this.money) {
       alert('Invalid bet amount');
       return;
     }
     if (!this.bets.some(bet => bet.number === number)) {
       this.bets.push({ number, amount: betAmount });
+      this.money = parseFloat(this.money.toFixed(2))
       this.money -= betAmount;
       this.updateMoneyDisplay();
       this.updateBetsDisplay();
@@ -50,14 +51,12 @@ constructor(private appComponent: AppComponent) {
   cancelBet(number: number | string): void {
     const betIndex: number = this.bets.findIndex(bet => bet.number == number); 
     if (betIndex !== -1) {
-      console.log(`Cancelling bet on ${number}`);
+     
       this.money += this.bets[betIndex].amount;
       this.bets.splice(betIndex, 1);
       this.updateMoneyDisplay();
       this.updateBetsDisplay();
-    } else {
-      console.log(`Bet on ${number} not found`);
-    }
+    } 
   }
 
   spinWheel(): void {
@@ -65,6 +64,10 @@ constructor(private appComponent: AppComponent) {
       alert('Please place a bet before spinning.');
       return;
     }
+
+    this.money = parseFloat(this.money.toFixed(2))
+    this.appComponent.kaska = this.money
+
     this.isSpinning = true;
     this.disableCancelButtons();
     const spinDuration: number = 3000; 
@@ -123,7 +126,7 @@ constructor(private appComponent: AppComponent) {
     this.bets = [];
     this.updateBetsDisplay();
     this.updatePreviousResults(winningNumber, this.isRed(winningNumber) ? 'Red' : this.isBlack(winningNumber) ? 'Black' : 'Green');
-    this.appComponent.kaska = this.money
+    
   }
 
   updateBetsDisplay(): void {
@@ -159,6 +162,7 @@ constructor(private appComponent: AppComponent) {
 
   updateMoneyDisplay(): void {
     const moneyDisplay = document.getElementById('money-display') as HTMLElement;
+    this.money = parseFloat(this.money.toFixed(2));
     moneyDisplay.innerHTML = `Money: $${this.money}`;
   }
 
