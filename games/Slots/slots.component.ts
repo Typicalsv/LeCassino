@@ -8,6 +8,8 @@ import { AppComponent } from '../app.component';
   styleUrl: './slots.component.css'
 })
 export class SlotsComponent {
+
+  
   constructor(private appComponent: AppComponent) {
     this.balance = this.appComponent.kaska; // pieniadze początkowe
   }
@@ -68,7 +70,7 @@ export class SlotsComponent {
     const [first, second, third] = this.reels;
     //sprawdza czy symbol jest taki jak pierwszy(arr[0])
     if (first === second && second === third) {
-      const winnings = this.betInGame * 100; //mnośnik wygranej
+      const winnings = this.betInGame * 10; //mnośnik wygranej
       this.balance += winnings;
       this.balance = parseFloat(this.balance.toFixed(2))
       this.resultMessage = 'WYGRANA🎉' + winnings;
