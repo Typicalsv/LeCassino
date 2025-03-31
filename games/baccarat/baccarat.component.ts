@@ -104,8 +104,8 @@ constructor(private appComponent: AppComponent) {
   }
 
   betBanker() {
-    if(!this.gameStarted && !this.gameOver){
-    const betInput = document.getElementById('bet') as HTMLInputElement;
+    if(!this.gameStarted && !this.gameOver){  
+        const betInput = document.getElementById('bet') as HTMLInputElement;
 
     if (betInput) {
       this.bet = betInput.valueAsNumber;
