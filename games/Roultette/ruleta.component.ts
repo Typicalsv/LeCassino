@@ -8,7 +8,7 @@ type Bet = {
 
 @Component({
   selector: 'app-ruleta',
-  imports: [ RouterOutlet],
+  imports: [ ],
   templateUrl: './ruleta.component.html',
   styleUrl: './ruleta.component.css'
 })
