@@ -2,12 +2,11 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { GlowowyComponent } from '../glowowy/glowowy.component';
-import { RouterOutlet } from '@angular/router';
 import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-mines',
-  imports: [CommonModule, FormsModule, RouterOutlet],
+  imports: [CommonModule, FormsModule],
   templateUrl: './mines.component.html',
   styleUrl: './mines.component.css'
 })
