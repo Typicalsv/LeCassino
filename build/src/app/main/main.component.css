@@ -1,0 +1,67 @@
+*
+{
+   padding: 0; 
+   overflow:hidden;
+}
+
+.games-container {
+    display: flex;
+    width: 100%;
+    height: 100vh; /* Change to 100vh to fit the screen height */
+    padding: 10px; /* Removed padding to take full vertical space */
+    box-sizing: border-box;
+}
+
+.game {
+    height: 37vh; /* Ensure game containers take full vertical space */
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
+    padding: 5% 0 5% 0;
+    margin: 30px; /* Removed margin to allow full space usage */
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: #006400;
+}
+
+.game:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    transition: transform 0.1s ease 0.2s, box-shadow 0.3s ease;
+}
+
+
+.game h2 {
+    margin: 0;
+    font-size: 1.5em;
+    color: #ffffff;
+    padding: 10px;
+    font-size: 70px;
+    font-family: "Kaushan Script", cursive;
+    font-weight: 600;
+    font-style: normal;
+}
+
+body {
+    background-color: #006400;
+    height: auto;
+    padding: 0 20px 0 20px;
+}
+
+.main {
+    min-height: 89.7vh; /* Set minimum height to allow for scrolling */
+    width: 100%;
+}
+
+.row {
+    display: flex; /* Set display to flex for equal height distribution */
+    flex: 1; /* Allow rows to expand and fill available space */
+    height: 50%; /* Set height to 50% to divide space equally */
+}
+
+.roulette, .blackjack, .kosci, .sloty, .miny, .baccarat {
+    background-repeat: no-repeat;
+    background-size: cover;
+}

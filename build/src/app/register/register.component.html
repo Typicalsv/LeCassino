@@ -1,0 +1,71 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-image: url('casino.png'); background-size: cover; background-position: center;">
+    <div class="container">
+        <h2>Rejestracja</h2>
+        <form (submit)="checkInputs($event);" autocomplete="off">
+            
+            <div class="form-group">
+                <label for="name">Imię</label>
+                <input [(ngModel)]="nam" type="text" id="name" [ngModelOptions]="{standalone: true}" placeholder="Imię">
+                <div id="nameError" class="error"></div>
+            </div>
+    
+            <div class="form-group">
+                <label for="surname">Nazwisko</label>
+                <input [(ngModel)]="surnam" type="text" [ngModelOptions]="{standalone: true}" id="surname" placeholder="Nazwisko">
+                <div id="surnameError" class="error"></div>
+            </div>
+    
+            <div class="form-group">
+                <label for="pesel">PESEL</label>
+                <input [(ngModel)]="pese" type="text" [ngModelOptions]="{standalone: true}" id="pesel" placeholder="PESEL">
+                <div id="peselError" class="error"></div>
+            </div>
+    
+            <div class="form-group">
+                <label for="username">Nazwa użytkownika</label>
+                <input [(ngModel)]="usernam" type="text" id="username" [ngModelOptions]="{standalone: true}" placeholder="Nazwa użytkownika">
+                <div id="usernameError" class="error"></div>
+            </div>
+            <div class="form-group">
+                <label for="username">Phone</label>
+                <input [(ngModel)]="phon" type="text" id="phone" [ngModelOptions]="{standalone: true}" placeholder="Telefon">
+                <div id="usernameError" class="error"></div>
+            </div>
+    
+            <div class="form-group">
+                <label for="password">Hasło</label>
+                <div class="input-wrapper">
+                    <input [(ngModel)]="passwor" type="password" [ngModelOptions]="{standalone: true}" id="password" placeholder="Hasło">
+                    <i class="bx bxs-lock-alt" (click)="togglePasswordVisibilityOne()"></i>
+                </div>
+                <div id="passwordError" class="error"></div>
+            </div>
+    
+            <div class="form-group">
+                <label for="confirm-password">Potwierdź hasło</label>
+                <div class="input-wrapper">
+                    <input type="password" id="confirm-password" placeholder="Wprowadź ponownie hasło">
+                    <i class="bx bxs-lock-alt" (click)="togglePasswordVisibilityTwo()"></i>
+                </div>
+                <div id="confirmPasswordError" class="error"></div>
+            </div>
+    
+            <button type="submit" class="btn" id="register-button" >Zarejestruj</button>
+            
+            <div id="PLogin">
+                Masz już konto? <a routerLink="/login">Zaloguj się</a>
+            </div>
+        </form>
+    </div>
+    
+</body>
+</html>

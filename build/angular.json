@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "lecassino": {
+    "lecassino2": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/lecassino",
+            "outputPath": "dist/lecassino2",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -29,12 +29,7 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": [],
-            "server": "src/main.server.ts",
-            "prerender": true,
-            "ssr": {
-              "entry": "src/server.ts"
-            }
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -64,10 +59,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "lecassino:build:production"
+              "buildTarget": "lecassino2:build:production"
             },
             "development": {
-              "buildTarget": "lecassino:build:development"
+              "buildTarget": "lecassino2:build:development"
             }
           },
           "defaultConfiguration": "development"

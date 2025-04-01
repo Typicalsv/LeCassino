@@ -2,10 +2,22 @@ from fastapi import FastAPI, HTTPException, Depends
 from pydantic import BaseModel
 import mysql.connector
 from mysql.connector import Error
-from typing import Optional
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
+origins = [
+    "http://localhost:4200"
+]
+
+# Add CORS middleware
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,  # Allow only specified origins
+    allow_credentials=True,
+    allow_methods=["*"],  # Allow all HTTP methods (POST, GET, etc.)
+    allow_headers=["*"],  # Allow all headers
+)
 # Database configuration
 db_config = {
     'host': 'localhost',
@@ -14,6 +26,7 @@ db_config = {
     'database': 'users'
 }
 
+# Helper function to connect to the database
 def get_db_connection():
     try:
         connection = mysql.connector.connect(**db_config)
@@ -22,6 +35,7 @@ def get_db_connection():
         print(f"Error connecting to MySQL: {e}")
         return None
 
+# Pydantic models for request validation
 class LoginRequest(BaseModel):
     username: str
     password: str
@@ -75,7 +89,7 @@ def register(request: RegisterRequest):
         connection.close()
         raise HTTPException(status_code=409, detail="Username, PESEL, or phone number already exists")
 
-    # Insert
+    # Insert new user
     insert_query = """
     INSERT INTO users (username, password, name, surname, pesel, phone)
     VALUES (%s, %s, %s, %s, %s, %s)

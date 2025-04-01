@@ -1,0 +1,143 @@
+.slot-machine {
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+    font-size: 2rem;
+    
+}
+.left{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: 30%;
+}
+
+
+
+.center{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+}
+.right{
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    width: 30%;
+}
+
+.reels {
+    /*maszyna*/
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.reel {
+    /*pojedyńcze rolki*/
+    width: 150px;
+    height: 150px;
+    line-height: 80px;
+    border: 2px solid black;
+    border-radius: 10px;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+button {
+    width: 200px;
+    font-size: x-large;
+    padding: 12px 25px;
+    cursor: pointer;
+    border-radius: 15px;
+    border: 2px solid black;
+    background: linear-gradient( #00aa00, #006600);
+    color: white;
+    font-weight: bold;
+    transition: all 0.5s ease-in-out;
+}
+  button:hover {
+    background: linear-gradient( #006600, #00aa00);
+    transform: scale(1.05);
+}
+
+
+  button:disabled {
+    background: gray;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.result {
+    margin-top: 15px;
+    font-weight: bold;
+    font-family: Arial;
+}
+
+.balance {
+    display: flex;
+    flex-direction: row;
+    font-size: x-large;
+    font-weight: bold;
+    color: black;
+    margin-left: 50px;
+  }
+
+  .betAmount{
+    display: flex;
+    flex-direction: row;
+    font-size: x-large;
+    font-weight: bold;
+    color: black;
+    margin-left: 50px;
+  }
+
+  .bet-controls {
+    display: flex;
+    flex-direction: row;
+    margin-left: 2%;
+    height: 10%;
+  }
+  
+  .bet-controls button {
+    width: auto;
+    margin-left: 20px;
+    font-size: medium;
+    padding: 12px 25px;
+    cursor: pointer;
+    border-radius: 15px;
+    border: 2px solid black;
+    background: linear-gradient( #00aa00, #006600);
+    color: white;
+    font-weight: bold;
+    transition: all 0.5s ease-in-out;
+  }
+  
+  .bet-controls button:hover {
+    background: linear-gradient( #006600, #00aa00);
+    transform: scale(1.05);
+  }
+  
+  body{
+    background-color: #006400;
+    height: 90vh;
+}
+
+.kaska{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+   
+    padding-right: 30%;
+    
+}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Casino Games</title>
+  <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+  <div class="header">
+    <a href="/main">
+      <div class="casino-logo">
+        <p>LeCassino</p>
+      </div>
+    </a>
+    <div class="account-info">
+      <button class="left" role="button" (click)="logout()">Wyloguj</button> 
+      <div class="account-details">
+        <span class="account-name">{{this.usernamelocal}}</span>
+        <span class="account-balance">{{this.balancelocal}}&nbsp;zł</span>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

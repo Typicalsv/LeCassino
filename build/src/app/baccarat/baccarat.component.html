@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+
+    <div class="information">
+    <h1 id="headerH1">Baccarat</h1></div>
+    
+    <div class="container"> 
+        <div class="banker">
+            <h1>Banker</h1>
+            <div id="bankerHandContainer">{{bankerHandContainer}}</div>
+            <div id="bankerScore">Value: {{bankerScore}}</div>
+            <div id="result">{{result}}</div>
+        </div>
+        <div class="bets">
+            <button (click)="playerBet()" id="betPlayer">Player<br>{{playerMoney}}<br> pays 1:1</button>
+            <button (click)="betTie()">Tie<br>{{tieMoney}} <br>8:1</button>
+            <button (click)="betBanker()">Banker<br>{{bankerMoney}} <br>19:20</button>
+        </div>
+        <div class="player">
+            <button *ngIf="gameOver" (click)="replayGame()" id="replayButton">Replay</button>
+            <h1>Player</h1>
+            <div class="playerContainer">
+                <div id="playerHandContainer">{{playerHandContainer}}</div>
+                <div id="playerScore">Value: {{playerScore}}</div>
+            </div>
+            <div id="money">${{money}}</div>
+            <div class="bet_container" *ngIf="!gameOver && !gameStarted">
+                <input type="number" name="bet" id="bet" placeholder="Enter your bet" value="10">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

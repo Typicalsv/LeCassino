@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from '../app.component';
 
-
 @Component({
   selector: 'app-baccarat',
   templateUrl: './baccarat.component.html',
@@ -12,8 +11,15 @@ import { AppComponent } from '../app.component';
 })
 export class BaccaratComponent implements OnInit {
 
-constructor(private appComponent: AppComponent) {
-    this.money = parseFloat(this.appComponent.kaska.toFixed(2)); // pieniadze początkowe
+  constructor(private appComponent: AppComponent) {
+    const storedBalance = localStorage.getItem('balance');
+    this.money = storedBalance ? parseFloat(storedBalance) : parseFloat(this.appComponent.kaska.toFixed(2));
+    this.appComponent.kaska = this.money;
+  }
+
+  updateBalance() {
+    localStorage.setItem('balance', this.money.toFixed(2));
+    this.appComponent.kaska = this.money;
   }
 
 
@@ -68,9 +74,10 @@ constructor(private appComponent: AppComponent) {
       this.playerbettie = false;
       this.playerbetbanker = false;
       this.gameStarted = true;
-      this.appComponent.kaska = parseFloat(this.money.toFixed(2));
+      this.updateBalance()
       
         this.deal();
+      
       }
       
     }
@@ -99,6 +106,7 @@ constructor(private appComponent: AppComponent) {
       this.appComponent.kaska = parseFloat(this.money.toFixed(2));
       
         this.deal();
+        this.updateBalance()
       }
     }
   }
@@ -124,6 +132,7 @@ constructor(private appComponent: AppComponent) {
       this.gameStarted = true;
       
         this.deal();
+        this.updateBalance()
       }
      
     }
@@ -244,6 +253,7 @@ constructor(private appComponent: AppComponent) {
     this.gameOver = true; 
     this.gameStarted = false;
     this.appComponent.kaska = parseFloat(this.money.toFixed(2));
+    this.updateBalance()
   }
 
   replayGame() {

@@ -1,0 +1,170 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 70%;
+    padding: 20px;
+    background-color: #006400;
+    border-radius: 10px;
+    
+    animation: fadeIn 1s ease-in-out;
+}
+
+
+
+body {
+    height: 90vh;
+    color: rgb(245, 237, 166);
+    background-color: #006400;
+    padding: 0;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.bets button {
+    background: rgba(0, 0, 0, 0.3);
+    border: 2px solid rgb(245, 237, 166);
+    color: rgb(245, 237, 166);
+    height: auto;
+    width: 150px;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: border-color 0.3s, color 0.3s, background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+button:hover {
+    border: 2px solid rgb(153, 255, 0);
+    color: rgb(153, 255, 0);
+    background-color: rgba(153, 255, 0, 0.1);
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(153, 255, 0, 0.5);
+    
+}
+
+.bets {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.player h1, .banker h1 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 2em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.bet_container input {
+    background: transparent;
+    width: 200px;
+    height: 30px;
+    border-radius: 10px;
+    outline: none;
+    border: 1px solid rgb(245, 237, 166);
+    color: white;
+    padding: 5px;
+    margin: 10px;
+    transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+}
+
+.bet_container input:focus {
+    border-color: rgb(153, 255, 0);
+    box-shadow: 0 0 5px rgb(153, 255, 0);
+    transform: scale(1.05);
+}
+
+.bet_container {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#money {
+    border: 1px solid rgb(245, 237, 166);
+    border-radius: 10px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 10px;
+    margin: 10px;
+    background-color: rgba(0, 0, 0, 0.2);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.bet_container input::placeholder {
+    color: white;
+}
+
+.banker div, .playerContainer {
+    font-size: 1.5em;
+    margin: 10px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+#result{
+    
+    margin-bottom: 0px;
+    font-size: 50px;
+}
+
+#replayButton {
+    background: rgba(0, 0, 0, 0.3);
+    border: 2px solid rgb(245, 237, 166);
+    color: rgb(245, 237, 166);
+    height: auto;
+    width: 100px;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: border-color 0.3s, color 0.3s, background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+#replayButton:hover {
+    border: 2px solid rgb(153, 255, 0);
+    color: rgb(153, 255, 0);
+    background-color: rgba(153, 255, 0, 0.1);
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(153, 255, 0, 0.5);
+}
+
+.information{
+    justify-content:  center;
+    display: flex;
+    font-size: 40px;
+    padding-top: 20px;
+   
+}
+
+
+.banker{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.player h1{
+    justify-self: center;
+}
+.playerContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

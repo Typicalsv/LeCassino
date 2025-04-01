@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="slot-machine">
+
+        <div class="left">
+            <div class="kaska">
+          <p class="balance">Saldo: {{ balance }}</p>
+          <span class="betAmount">Zakład: {{ betAmount }}</span>
+            </div>
+          <div class="bet-controls">
+            <button (click)="decreaseBet()" [disabled]="betAmount <= minBet">➖</button>
+            <button (click)="increaseBet()" [disabled]="betAmount >= maxBet">➕</button>
+            <button (click)="shareBet()" [disabled]="betAmount <= minBet">➗</button>
+            <button (click)="multiplyBet()" [disabled]="betAmount > maxBet">✖️</button>
+          </div>
+        </div>
+      
+      
+        <div class="center">
+          <div class="reels">
+            <div class="reel">{{ reels[0] }}</div> 
+            <div class="reel">{{ reels[1] }}</div>
+            <div class="reel">{{ reels[2] }}</div>
+          </div>
+      
+          <button (click)="spinReels()" [disabled]="isSpinning">Zakręć</button> 
+          <p class="result">{{ resultMessage }}</p>
+        </div>
+      
+    
+        
+      
+        </div>
+        
+</body>
+</html>
+

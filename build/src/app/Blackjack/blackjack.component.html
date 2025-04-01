@@ -1,0 +1,51 @@
+<div class="main">
+<div class="game-container">
+    <div class="game-header">
+      <div class="balance">Balance: ${{currentBalance}}&nbsp;&nbsp;</div>
+      <div class="bet">Bet: ${{currentBet}}</div>
+      <div class="message">{{message}}</div>
+    </div>
+  
+    <div class="dealer-section">
+      <h2>Dealer</h2>
+      <div class="cards">
+        <div *ngFor="let card of dealerHand; let i = index" 
+             class="card" 
+             [class.red]="getCardColor(card) === 'red'"
+             [class.face-down]="isFaceDown(card, i)">
+          {{isFaceDown(card, i) ? '🂠' : card}}
+        </div>
+      </div>
+      <div class="score">Score: {{gameOver ? dealerScore : dealerHand.length > 0 ? getCardValue(dealerHand[0]) : 0}}</div>
+    </div>
+  
+    <div class="player-section">
+      <h2>Player</h2>
+      <div class="cards">
+        <div *ngFor="let card of playerHand" 
+             class="card" 
+             [class.red]="getCardColor(card) === 'red'">
+          {{card}}
+        </div>
+      </div>
+      <div class="score">Score: {{playerScore}}</div>
+    </div>
+  
+    <div class="controls">
+      <div *ngIf="!gameStarted" class="bet-controls">
+        <input type="number" [(ngModel)]="betInput" min="1" [max]="currentBalance" placeholder="Enter bet">
+        <button (click)="startGame()" [disabled]="!betInput || betInput > currentBalance">Deal</button>
+      </div>
+  
+      <div *ngIf="gameStarted && !gameOver" class="action-buttons">
+        <button (click)="hit()">Hit</button>
+        <button (click)="stand()">Stand</button>
+        <button (click)="double()" [disabled]="!canDouble">Double</button>
+        <button (click)="split()" [disabled]="!canSplit">Split</button>
+      </div>
+  
+      <div *ngIf="gameOver" class="new-game-button">
+        <button (click)="resetGame()">New Game</button>
+      </div>
+    </div>
+  </div></div>
