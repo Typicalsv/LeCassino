@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from '../app.component';
 @Component({
   selector: 'app-dices',
-  imports: [RouterOutlet, FormsModule, CommonModule],
+  imports: [ FormsModule, CommonModule],
   templateUrl: './dices.component.html',
   styleUrl: './dices.component.css'
 })
