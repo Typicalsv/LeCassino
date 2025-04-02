@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-image: url('money.png'); background-size: cover; background-position: center;">
+    <main>
+        <div class="containerButBetter">
+        <div class="containerMain">
+            <form (submit)="checkInputs($event)">
+            <h2>Wpłać Środki:</h2>
+            
+                
+                <input type="number" id="hajs" placeholder="Wprowadź hasj" [(ngModel)]="hajs" [ngModelOptions]="{standalone: true}" required>
+                <div id="Error"></div>
+                <p>Liczba wpłacanych środków: {{hajs}}</p>
+                <input type="submit" value="Wpłać">
+            </form>
+            </div>
+        
+        </div>
+    
+    
+    </main>
+</body>
+</html>
