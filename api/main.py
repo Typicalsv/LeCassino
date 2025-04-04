@@ -13,11 +13,12 @@ origins = [
 # Add CORS middleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,  # Allow only specified origins
+    allow_origins=origins,
     allow_credentials=True,
-    allow_methods=["*"],  # Allow all HTTP methods (POST, GET, etc.)
-    allow_headers=["*"],  # Allow all headers
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
+
 # Database configuration
 db_config = {
     'host': 'localhost',
@@ -48,6 +49,14 @@ class RegisterRequest(BaseModel):
     pesel: str
     phone: str
 
+class BalanceUpdateRequest(BaseModel):
+    username: str
+    balance: float
+
+@app.get("/")
+def read_root():
+    return {"message": "Welcome to the FastAPI authentication API!"}
+
 @app.post("/login")
 def login(request: LoginRequest):
     connection = get_db_connection()
@@ -66,10 +75,6 @@ def login(request: LoginRequest):
         return {"message": "Login successful", "user": user}
     else:
         raise HTTPException(status_code=401, detail="Invalid username or password")
-
-@app.get("/")
-def read_root():
-    return {"message": "Welcome to the FastAPI authentication API!"}
 
 @app.post("/register")
 def register(request: RegisterRequest):
@@ -102,3 +107,31 @@ def register(request: RegisterRequest):
     connection.close()
 
     return {"message": "Registration successful"}
+
+@app.post("/update-balance")
+def update_balance(request: BalanceUpdateRequest):
+    connection = get_db_connection()
+    if not connection:
+        raise HTTPException(status_code=500, detail="Database connection failed")
+
+    cursor = connection.cursor()
+
+    # Check if user exists
+    select_query = "SELECT * FROM users WHERE username = %s"
+    cursor.execute(select_query, (request.username,))
+    user = cursor.fetchone()
+
+    if not user:
+        cursor.close()
+        connection.close()
+        raise HTTPException(status_code=404, detail="User not found")
+
+    # Update balance
+    update_query = "UPDATE users SET balance = %s WHERE username = %s"
+    cursor.execute(update_query, (request.balance, request.username))
+    connection.commit()
+
+    cursor.close()
+    connection.close()
+
+    return {"message": "Balance updated successfully"}
