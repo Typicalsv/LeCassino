@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body style="background-image: url('money.png'); background-size: cover; background-position: center;">
+<body style="background-image: url('casino.png'); background-size: cover; background-position: center;">
     <main>
         <div class="containerButBetter">
         <div class="containerMain">
@@ -13,7 +13,8 @@
             <h2>Wpłać Środki:</h2>
             
                 
-                <input type="number" id="hajs" placeholder="Wprowadź hasj" [(ngModel)]="hajs" [ngModelOptions]="{standalone: true}" required>
+                <input type="number" id="hajs" placeholder="Wprowadź Pieniądze" [(ngModel)]="hajs" [ngModelOptions]="{standalone: true}" required>
+                <input type="number"  placeholder="Wprowadź Kartę" [(ngModel)]="karta" [ngModelOptions]="{standalone: true}" required>
                 <div id="Error"></div>
                 <p>Liczba wpłacanych środków: {{hajs}}</p>
                 <input type="submit" value="Wpłać">

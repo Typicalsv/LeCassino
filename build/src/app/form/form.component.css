@@ -3,7 +3,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    color: black;
+    color: rgb(255, 255, 255);
 }
 
 .containerMain{
@@ -11,7 +11,7 @@ background: transparent;
 backdrop-filter: blur(7px);
 height: 50%;
 width: 50%;      
-border: 2px solid black;
+border: 2px solid rgb(255, 255, 255);
 
 border-radius: 20px;
 }
@@ -22,7 +22,7 @@ border-radius: 20px;
     box-sizing: border-box;
     border-radius: 10px;
     border: none;
-    border: 2px solid rgb(0, 0, 0);
+    border: 2px solid rgb(255, 255, 255);
     background: transparent;
     color: black;
     

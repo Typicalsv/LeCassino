@@ -52,13 +52,25 @@ export class AuthService {
       );
     });
   }
+  alter(name: string, balance: number): Observable<any> {
+    return this.http.post<any>('http://127.0.0.1:8000/update-balance', {
+      username: name,
+      balance: balance
+    });
+  }
+  user = localStorage.getItem('username')
+  bal = localStorage.getItem('balance')
+
 
   logout(): void {
-
+    const username = localStorage.getItem('username') || '';
+    const balance = Number(localStorage.getItem('balance') || '0');
+  
     localStorage.setItem('loggedIn', 'false');
-    this.router.navigate(['/login']);
-
-    window.location.reload()
+    this.alter(username, balance).subscribe(() => {
+      this.router.navigate(['/login']);
+      window.location.reload();
+    });
   }
 
   isLoggedIn(): boolean {

@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from '../app.component';
-import {Router, RouterModule} from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-form',
@@ -12,26 +12,77 @@ import {Router, RouterModule} from '@angular/router';
   styleUrl: './form.component.css'
 })
 export class FormComponent {
+  hajs: number = 0;
+  karta: number = 0;
+  balans: number = 0;
 
-constructor (private app: AppComponent  , private router: Router) { }
+  constructor(private app: AppComponent, private router: Router) {}
 
-hajs: number =0;
+  checkInputs(event: Event) {
+    event.preventDefault();
+    const error = document.getElementById('Error') as HTMLElement;
+    
+    // Reset error message
+    error.textContent = '';
+    
+    // Validate inputs
+    if (this.hajs <= 0) {
+      error.textContent = "Środki muszą być większe od 0";
+      return;
+    }
+    
+    if (this.karta.toString().length !== 16) {
+      error.textContent = "Numer karty kredytowej powinien mieć 16 cyfr";
+      return;
+    }
+
+    console.log('Form submission started');
+    
+    this.app.kaska += this.hajs;
+    console.log('App balance updated to:', this.app.kaska);
+
+    if (typeof localStorage !== 'undefined') {
+      try {
+        let currentBalance = 0;
+        const storedBalance = localStorage.getItem('balance');
+        if (storedBalance) {
+          currentBalance = parseInt(storedBalance, 10) || 0;
+        }
+        
+        console.log('Current localStorage balance:', currentBalance);
+        
+        const newBalance = currentBalance + this.hajs;
+        localStorage.setItem('balance', newBalance.toString());
+
+        console.log('New balance saved to localStorage:', newBalance);
+        
+        const verifiedValue = localStorage.getItem('balance');
+
+        console.log('Verified stored value:', verifiedValue);
+
+        
+        if (verifiedValue !== newBalance.toString()) {
+          throw new Error('Storage verification failed');
+        }
+        
+        // Update component state
+        this.balans = newBalance;
+        this.app.kaska = newBalance; // Keep app balance in sync
+        error.textContent = 'Wpłacono środki!'
+        window.location.reload()
+        
+      } catch (e) {
+        console.error('LocalStorage error:', e);
+        error.textContent = "Błąd zapisu - spróbuj odświeżyć stronę";
+        return;
+      }
+    } else {
+      console.error('LocalStorage is not available');
+      error.textContent = "Przeglądarka nie obsługuje zapisu danych";
+      return;
+    }
 
 
-checkInputs(event: Event){
-  event.preventDefault();
-  const error = document.getElementById('Error') as HTMLElement;
-  let ifValid = true;
-  if(this.hajs <=0 ){
-    ifValid = false
-    error.textContent = "Środki muszą być wieksze od 0";
+    this.router.navigate(['/main']);
   }
-  if(ifValid){
-    console.log("dziala")
-    error.textContent = "";
-    this.app.kaska += this.hajs
-    this.router.navigate(['/stronaglowna']);
-  }
-  
-}
 }

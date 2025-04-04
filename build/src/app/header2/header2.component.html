@@ -19,7 +19,7 @@
       <button class="left" role="button" (click)="logout()">Wyloguj</button> 
       <div class="account-details">
         <span class="account-name">{{this.usernamelocal}}</span>
-        <span class="account-balance">{{this.balancelocal}}&nbsp;zł</span>
+        <a routerLink="/form"><span class="account-balance">{{this.balancelocal}}&nbsp;zł</span></a>
       </div>
     </div>
   </div>
